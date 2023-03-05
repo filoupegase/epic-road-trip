@@ -1,9 +1,6 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-  'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-  'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -115,14 +112,7 @@ Sections
 
 body {
   margin: 0; /* 1 */
-  font-family: system-ui,
-  'Segoe UI',
-  Roboto,
-  Helvetica,
-  Arial,
-  sans-serif,
-  'Apple Color Emoji',
-  'Segoe UI Emoji'; /* 2 */
+  font-family: "Trip Sans VF","Trip Sans",Arial,sans-serif;
 }
 
 /*
