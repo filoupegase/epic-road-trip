@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## 🕹️ Getting Started
 
-Run `npm install` to install the necessary dependencies and `npm run dev` to start the local server, and then open [http://localhost:3000/](http://localhost:3000/). Pages will live-refresh when source files are changed.
+Run `yarn install` to install the necessary dependencies and `yarn run dev` to start the local server, and then open [http://localhost:3000/](http://localhost:3000/). Pages will live-refresh when source files are changed.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
