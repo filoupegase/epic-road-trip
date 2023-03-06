@@ -1,0 +1,3 @@
+module.exports = {
+    siteLocale: 'en'
+}
