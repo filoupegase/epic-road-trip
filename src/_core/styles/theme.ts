@@ -6,10 +6,20 @@ const theme = createTheme({
         primary: {
             main: '#000',
         },
-        secondary: {
-            main: '#E95D5D',
-        },
     },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    textTransform: 'capitalize'
+                },
+            },
+        },
+        MuiButtonBase: {
+            // The props to change the default for.
+            defaultProps: {} // No exemple yet 💣!
+        }
+    }
 });
 
 export default theme;

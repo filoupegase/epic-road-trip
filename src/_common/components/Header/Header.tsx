@@ -1,5 +1,6 @@
 import * as React from "react";
-import { styled, Box, Button } from '@mui/material';
+import styled from 'styled-components';
+import { Box, Button } from '@mui/material';
 
 
 const Header = () => {
@@ -8,7 +9,7 @@ const Header = () => {
             <Nav>
                 <Box>
                     <Button variant='outlined'>Login</Button>
-                    <Button variant='contained' disableElevation>Sign Up</Button>
+                    <Button variant='contained'>Sign Up</Button>
                 </Box>
             </Nav>
         </Wrapper>
