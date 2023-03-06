@@ -1,12 +1,15 @@
 import * as React from "react";
-import { styled } from '@mui/material';
+import { styled, Box, Button } from '@mui/material';
 
 
 const Header = () => {
     return (
         <Wrapper>
             <Nav>
-                <p>header ici</p>
+                <Box>
+                    <Button variant='outlined'>Login</Button>
+                    <Button variant='contained' disableElevation>Sign Up</Button>
+                </Box>
             </Nav>
         </Wrapper>
     )
@@ -20,7 +23,6 @@ const Wrapper = styled('header')(() => ({
         backgroundColor: "#fdfdfd",
         //transition: `background ${theme.transitions.fade}, border ${theme.transitions.fade}`,
         zIndex: 9999,
-
         backdropFilter: "saturate(180%) blur(5px)",
         "@medium": {
             padding: "0.75em 1.25em",
@@ -32,7 +34,7 @@ const Wrapper = styled('header')(() => ({
 const Nav = styled('nav')(() => ({
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "flex-end",
         width: "100%",
         maxWidth: 1100,
         margin: "0 auto",

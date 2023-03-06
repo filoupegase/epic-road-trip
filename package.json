@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mui/material": "^5.11.11",
+    "@mui/material": "^5.11.12",
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
     "eslint": "8.35.0",
     "eslint-config-next": "^13.2.3",
