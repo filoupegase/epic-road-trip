@@ -9,7 +9,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     return (
         <>
             <StickyHeader />
-            <Container>
+            <Container maxWidth="lg" sx={ { mt: 5 } }>
                 { children }
             </Container>
         </>

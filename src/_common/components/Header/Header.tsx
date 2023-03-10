@@ -8,7 +8,7 @@ const Header = () => {
         <Wrapper>
             <Nav>
                 <Box>
-                    <Button variant='outlined'>Login</Button>
+                    <Button sx={ { mr: 2 } } variant='outlined'>Login</Button>
                     <Button variant='contained'>Sign Up</Button>
                 </Box>
             </Nav>
@@ -19,10 +19,11 @@ const Header = () => {
 const Wrapper = styled('header')(() => ({
         width: "100%",
         height: "4.5em",
-        padding: "0.7em 1.5em",
+        padding: "0.7em 4.7em",
         borderBottom: `1px solid #e3e3e3`,
         backgroundColor: "#fdfdfd",
         zIndex: 9999,
+        display: 'flex'
     })
 );
 
@@ -31,7 +32,6 @@ const Nav = styled('nav')(() => ({
         alignItems: "center",
         justifyContent: "flex-end",
         width: "100%",
-        maxWidth: 1100,
         margin: "0 auto",
     })
 );
