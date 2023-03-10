@@ -22,13 +22,7 @@ const Wrapper = styled('header')(() => ({
         padding: "0.7em 1.5em",
         borderBottom: `1px solid #e3e3e3`,
         backgroundColor: "#fdfdfd",
-        //transition: `background ${theme.transitions.fade}, border ${theme.transitions.fade}`,
         zIndex: 9999,
-        backdropFilter: "saturate(180%) blur(5px)",
-        "@medium": {
-            padding: "0.75em 1.25em",
-            height: "5.9em",
-        },
     })
 );
 
