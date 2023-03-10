@@ -1,18 +1,36 @@
-import * as React from "react";
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Box, Button } from '@mui/material';
 
 
 const Header = () => {
+    const [open, setOpen] = useState<boolean>(false);
+    const [value, setValue] = useState<number>(0);
+
+
+    const handleClickLogin = () => {
+        setOpen(true);
+        setValue(0);
+    };
+
+    const handleClickSignUp = () => {
+        setOpen(true);
+        setValue(1);
+    };
+
+
     return (
-        <Wrapper>
-            <Nav>
-                <Box>
-                    <Button sx={ { mr: 2 } } variant='outlined'>Login</Button>
-                    <Button variant='contained'>Sign Up</Button>
-                </Box>
-            </Nav>
-        </Wrapper>
+        <>
+            <Wrapper>
+                <Nav>
+                    <Box>
+                        <Button sx={ { mr: 1 } } onClick={ handleClickLogin } variant='outlined'>Login</Button>
+                        <Button variant='contained' onClick={ handleClickSignUp } disableElevation>Sign Up</Button>
+                    </Box>
+                </Nav>
+            </Wrapper>
+            { open && <p>salut</p> }
+        </>
     )
 }
 
