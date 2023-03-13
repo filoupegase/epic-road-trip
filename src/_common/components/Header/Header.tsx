@@ -62,10 +62,10 @@ const Header = () => {
                             <StyledTab label="Sign Up" />
                         </Tabs>
                         <TabPanel value={ value } index={ 0 }>
-                            <p>salut { value }</p>
+                            <p>login _component with : { value }</p>
                         </TabPanel>
                         <TabPanel value={ value } index={ 1 }>
-                            <p>salut toi { value }</p>
+                            <p>login _component with : { value }</p>
                         </TabPanel>
                     </DialogContent>
                 </DialogLayout>
