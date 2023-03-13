@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## 🕹️ Getting Started
 
 Run `yarn install` to install the necessary dependencies and `yarn run dev` to start the local server, and then open [http://localhost:3000/](http://localhost:3000/). Pages will live-refresh when source files are changed.
