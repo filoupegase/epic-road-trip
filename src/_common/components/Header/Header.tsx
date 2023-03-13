@@ -7,6 +7,10 @@ const Header = () => {
     const [open, setOpen] = useState<boolean>(false);
     const [value, setValue] = useState<number>(0);
 
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue);
+    };
+
     const handleClickLogin = () => {
         setOpen(!open);
         setValue(0);
@@ -30,7 +34,10 @@ const Header = () => {
             { open &&
                 <DialogLayout onClose={ handleClickLogin } open={ open }>
                     <DialogContent>
-
+                        <Tabs value={ value } onChange={ handleChange } centered>
+                            <StyledTab label="Login" />
+                            <StyledTab label="Sign Up" />
+                        </Tabs>
                     </DialogContent>
                 </DialogLayout>
             }
@@ -55,6 +62,14 @@ const Nav = styled(Box)(() => ({
         justifyContent: "flex-end",
         width: "100%",
         margin: "0 auto",
+    })
+);
+
+// @ts-ignore
+const StyledTab = styled(Tab)(() => ({
+        fontSize: 20,
+        fontWeight: 600,
+        textTransform: 'none',
     })
 );
 

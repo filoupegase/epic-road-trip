@@ -1,8 +1,7 @@
 import * as React from "react";
 import type { PropsWithChildren } from "react";
-import { Container } from "@mui/material";
+import { Container, styled } from "@mui/material";
 import Header from "../Header";
-import styled from 'styled-components';
 
 
 const Layout = ({ children }: PropsWithChildren) => {
@@ -15,6 +14,7 @@ const Layout = ({ children }: PropsWithChildren) => {
         </>
     )
 };
+
 
 const StickyHeader = styled(Header)`
   position: sticky;
