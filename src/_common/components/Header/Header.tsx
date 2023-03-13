@@ -1,7 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, PropsWithChildren } from 'react';
 import { Box, Button, DialogContent, styled, Tabs, Tab } from '@mui/material';
 import DialogLayout from "@/_common/components/Dialog/DialogLayout";
 
+
+type TabPanelProps = PropsWithChildren<{
+    index: number;
+    value: number;
+}>
+
+function TabPanel({ children, value, index }: TabPanelProps) {
+
+    return (
+        <Box
+            role="tabpanel"
+            hidden={ value !== index }
+            id={ `simple-tabpanel-${ index }` }
+            aria-labelledby={ `simple-tab-${ index }` }
+        >
+            { value === index && (
+                <Box sx={ { pt: 3, pb: 3 } }>
+                    { children }
+                </Box>
+            ) }
+        </Box>
+    );
+}
 
 const Header = () => {
     const [open, setOpen] = useState<boolean>(false);
@@ -38,6 +61,12 @@ const Header = () => {
                             <StyledTab label="Login" />
                             <StyledTab label="Sign Up" />
                         </Tabs>
+                        <TabPanel value={ value } index={ 0 }>
+                            <p>salut { value }</p>
+                        </TabPanel>
+                        <TabPanel value={ value } index={ 1 }>
+                            <p>salut toi { value }</p>
+                        </TabPanel>
                     </DialogContent>
                 </DialogLayout>
             }
