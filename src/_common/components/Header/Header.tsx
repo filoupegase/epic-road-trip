@@ -29,7 +29,7 @@ const Header = () => {
                     </Box>
                 </Nav>
             </Wrapper>
-            { open && <p>salut</p> }
+            { open && <p>Bonjour</p> }
         </>
     )
 }
