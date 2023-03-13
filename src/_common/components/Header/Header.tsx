@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import { Box, Button, styled } from '@mui/material';
+import { Box, Button, DialogContent, styled, Tabs, Tab } from '@mui/material';
+import DialogLayout from "@/_common/components/Dialog/DialogLayout";
 
 
 const Header = () => {
     const [open, setOpen] = useState<boolean>(false);
     const [value, setValue] = useState<number>(0);
 
-
     const handleClickLogin = () => {
-        setOpen(true);
+        setOpen(!open);
         setValue(0);
     };
 
     const handleClickSignUp = () => {
-        setOpen(true);
+        setOpen(!open);
         setValue(1);
     };
-
 
     return (
         <>
@@ -28,7 +27,13 @@ const Header = () => {
                     </Box>
                 </Nav>
             </Wrapper>
-            { open && <p>Bonjour</p> }
+            { open &&
+                <DialogLayout onClose={ handleClickLogin } open={ open }>
+                    <DialogContent>
+
+                    </DialogContent>
+                </DialogLayout>
+            }
         </>
     )
 }
