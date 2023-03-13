@@ -1,4 +1,4 @@
-import React, { useState, PropsWithChildren } from 'react';
+import { useState, PropsWithChildren } from 'react';
 import { Box, Button, DialogContent, styled, Tabs, Tab } from '@mui/material';
 import DialogLayout from "@/_common/components/Dialog/DialogLayout";
 

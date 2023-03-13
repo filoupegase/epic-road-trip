@@ -1,4 +1,3 @@
-import * as React from "react";
 import type { PropsWithChildren } from "react";
 import { Container, styled } from "@mui/material";
 import Header from "../Header";
