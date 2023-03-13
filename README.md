@@ -2,7 +2,7 @@
 
 Run `yarn install` to install the necessary dependencies and `yarn run dev` to start the local server, and then open [http://localhost:3000/](http://localhost:3000/). Pages will live-refresh when source files are changed.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `pages/test.tsx`. The page auto-updates as you edit the file.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
