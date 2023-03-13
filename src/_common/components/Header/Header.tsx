@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Box, Button } from '@mui/material';
+import { Box, Button, styled } from '@mui/material';
 
 
 const Header = () => {
@@ -21,8 +20,8 @@ const Header = () => {
 
     return (
         <>
-            <Wrapper>
-                <Nav>
+            <Wrapper component='header'>
+                <Nav component='nav'>
                     <Box>
                         <Button sx={ { mr: 1 } } onClick={ handleClickLogin } variant='outlined'>Login</Button>
                         <Button variant='contained' onClick={ handleClickSignUp } disableElevation>Sign Up</Button>
@@ -34,7 +33,7 @@ const Header = () => {
     )
 }
 
-const Wrapper = styled('header')(() => ({
+const Wrapper = styled(Box)(() => ({
         width: "100%",
         height: "4.5em",
         padding: "0.7em 4.7em",
@@ -45,7 +44,7 @@ const Wrapper = styled('header')(() => ({
     })
 );
 
-const Nav = styled('nav')(() => ({
+const Nav = styled(Box)(() => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
