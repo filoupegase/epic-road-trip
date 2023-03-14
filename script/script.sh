@@ -5,6 +5,7 @@
 
 git remote remove origin
 git remote remove all
+git remote add origin git@github.com:EpitechMscProPromo2024/T-WEB-800-PAR_9.git
 # Create a new remote called "all" with the URL of the primary repo.
 git remote add all git@github.com:EpitechMscProPromo2024/T-WEB-800-PAR_9.git
 # Re-register the remote as a push URL.
