@@ -28,7 +28,6 @@ export default function Home() {
                 <SearchIcon color='primary' />
             </IconButton>
             <InputBase
-                sx={ { ml: 1, flex: 1 } }
                 placeholder="Where to?"
                 inputProps={ { 'aria-label': 'search google maps' } }
                 fullWidth
