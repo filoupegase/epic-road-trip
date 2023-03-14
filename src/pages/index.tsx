@@ -11,7 +11,7 @@ export default function Home() {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         if (value.length != 0) {
-            router.push(`/test`)
+            //router.push(`/profile`)
         }
     };
 
