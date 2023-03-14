@@ -41,7 +41,7 @@ export default function Home() {
 
 const StyledPaper = styled(Paper)(() => ({
     borderRadius: 15,
-    padding: '7px 18px',
+    padding: '7px 11px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
