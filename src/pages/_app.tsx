@@ -1,6 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { GlobalStyle } from '@/_core/styles/CreateGlobalStyle';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../_core/styles/theme';
@@ -21,6 +22,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
     return (
         <>
+            <Head>
+                <meta name="viewport" content="initial-scale=1, width=device-width" />
+            </Head>
             <GlobalStyle />
             <ThemeProvider theme={ theme }>{ getLayout(<Component { ...pageProps } />) }</ThemeProvider>
         </>
