@@ -287,6 +287,4 @@ export const GlobalStyle = createGlobalStyle`
   summary {
     display: list-item;
   }
-
-
 `
