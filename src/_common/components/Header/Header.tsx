@@ -1,5 +1,6 @@
-import { useState, PropsWithChildren } from 'react';
-import { Box, Button, DialogContent, styled, Tabs, Tab } from '@mui/material';
+import React, { useState, PropsWithChildren, SyntheticEvent } from 'react';
+import { Box, Button, DialogContent, Tabs, Tab } from '@mui/material';
+import styled from "styled-components";
 import DialogLayout from "@/_common/components/Dialog/DialogLayout";
 
 
@@ -30,7 +31,7 @@ const Header = () => {
     const [open, setOpen] = useState<boolean>(false);
     const [value, setValue] = useState<number>(0);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleChange = (event: SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
 
