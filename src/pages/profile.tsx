@@ -1,4 +1,5 @@
-import { Box, Typography, Divider, Link, styled, Button as MuiButton } from '@mui/material';
+import { Box, Typography, Divider, Link, Button as MuiButton } from '@mui/material';
+import styled from 'styled-components';
 import FaceIcon from '@mui/icons-material/Face';
 import EditIcon from '@mui/icons-material/Edit';
 

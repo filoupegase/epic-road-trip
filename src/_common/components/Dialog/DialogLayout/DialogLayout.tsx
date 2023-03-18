@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { styled, IconButton, DialogTitle, Dialog } from "@mui/material";
+import { IconButton, DialogTitle, Dialog } from "@mui/material";
+import styled from 'styled-components';
 
 
 export interface DialogTitleProps {

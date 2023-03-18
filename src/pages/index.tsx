@@ -1,6 +1,7 @@
 import { FormEvent, useState, ChangeEventHandler } from "react";
 import { useRouter } from 'next/router'
-import { Paper, InputBase, IconButton, styled } from '@mui/material';
+import { Paper, InputBase, IconButton } from '@mui/material';
+import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 
 
