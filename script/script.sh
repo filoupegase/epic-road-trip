@@ -15,5 +15,12 @@ git remote set-url --add --push all git@github.com:EpitechMscProPromo2024/T-WEB-
 git remote set-url --add --push all git@github.com:filoupegase/epic-road-trip.git
 git remote -v
 echo 'push start 🚀'
+echo '🚀'
+echo '🚀🚀'
+echo '🚀🚀🚀'
+echo '🚀🚀🚀🚀'
+echo '🚀🚀🚀🚀🚀'
+echo '🚀🚀🚀🚀🚀🚀'
+echo '🚀🚀🚀🚀🚀🚀🚀'
 git push all main
 echo 'push end 🥘'
