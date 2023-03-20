@@ -1,5 +1,4 @@
 import bcrypt from "bcrypt";
-import BinanceApiNode from "binance-api-node";
 
 export function hashAndSalt(text) {
   const salt = bcrypt.genSaltSync(10);
