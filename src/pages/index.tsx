@@ -1,9 +1,35 @@
 import { FormEvent, useState, ChangeEventHandler } from "react";
 import { useRouter } from 'next/router'
-import { Paper, InputBase, IconButton, Box } from '@mui/material';
+import { Paper, InputBase, IconButton, Stack } from '@mui/material';
 import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 import CardActionsCategory from "@/_common/components/CardActionsCategory";
+import KingBedOutlinedIcon from '@mui/icons-material/KingBedOutlined';
+import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
+import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+
+
+interface DataCategory {
+    icon: JSX.Element
+    label: string
+}
+
+const dataCardActionsCategory: DataCategory[] = [
+    {
+        icon: <KingBedOutlinedIcon />,
+        label: 'Hôtels'
+    }, {
+        icon: <LocalActivityOutlinedIcon />,
+        label: 'Activités'
+    }, {
+        icon: <RestaurantMenuOutlinedIcon />,
+        label: 'Restaurants'
+    }, {
+        icon: <MoreHorizOutlinedIcon />,
+        label: 'Plus'
+    }
+]
 
 
 export default function Home() {
@@ -23,12 +49,11 @@ export default function Home() {
 
     return (
         <>
-            <Box sx={ { mb: 3, display: 'flex', flexDirection: 'row' } }>
-                <CardActionsCategory label='Hôtels' />
-                <CardActionsCategory label='Activités' />
-                <CardActionsCategory label='Restaurants' />
-                <CardActionsCategory label='Plus' />
-            </Box>
+            <Stack sx={ { mt: 3, mb: 4 } } direction="row" spacing={ 2 }>
+                { dataCardActionsCategory.map((el: DataCategory, index) => {
+                    return <CardActionsCategory label={ el.label } icon={ el.icon } key={ index } />
+                }) }
+            </Stack>
             <StyledPaper
                 // @ts-ignore
                 component="form"
