@@ -4,7 +4,7 @@ import pool from "server/db";
 export default function (req, res) {
   function createToken(userId) {
     return sign(
-      { id: userId, iss: "count_of_money" },
+      { id: userId, iss: "road_trip" },
       process.env.TOKEN_SECRET,
       (err, token) => {
         if (err) {

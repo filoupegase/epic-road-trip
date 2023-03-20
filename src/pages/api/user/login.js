@@ -1,4 +1,4 @@
-import { compareHash } from "components/Toolbox/server";
+import { compareHash } from "src/_common/components/Toolbox/server";
 import { sign } from "jsonwebtoken";
 import pool from "server/db";
 
@@ -11,7 +11,7 @@ export default function (req, res) {
 
       function createToken(user) {
         return sign(
-          { id: user, iss: "count_of_money" },
+          { id: user, iss: "road_trip" },
           process.env.TOKEN_SECRET,
           (err, token) => {
             if (err) {
