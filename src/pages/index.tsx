@@ -29,7 +29,7 @@ const dataCardActionsCategory: DataCategory[] = [
         icon: <MoreHorizOutlinedIcon />,
         label: 'Plus'
     }
-]
+];
 
 
 export default function Home() {
