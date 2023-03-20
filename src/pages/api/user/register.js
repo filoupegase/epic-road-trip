@@ -54,7 +54,7 @@ export default async function (req, res) {
       );
 
       return sign(
-        { id: insertQuery.rows[0].id, iss: "count_of_money" },
+        { id: insertQuery.rows[0].id, iss: "road_trip" },
         process.env.TOKEN_SECRET,
         (err, token) => {
           if (err) {
