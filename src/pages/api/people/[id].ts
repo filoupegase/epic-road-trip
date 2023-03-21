@@ -3,7 +3,7 @@ import { people } from '@/data'
 import type { Person, ResponseError } from '@/interface';
 
 
-export default function personHandler(
+export default function Handler(
     req: NextApiRequest,
     res: NextApiResponse<Person | ResponseError>
 ) {

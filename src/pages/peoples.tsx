@@ -5,7 +5,7 @@ import PersonComponent from '../_common/components/Person';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
-export default function Activites() {
+export default function Activities() {
     const { data, error, isLoading } = useSWR<Person[]>('/api/people', fetcher)
 
     if (error) return <div>Failed to load</div>
@@ -16,10 +16,8 @@ export default function Activites() {
         <>
             <h1>Activities</h1>
             <ul>
-                { data.map((p) => (
-                    <>
-                        <PersonComponent key={ p.id } person={ p } />
-                    </>
+                { data.map((p, index) => (
+                    <PersonComponent key={ index } person={ p } />
                 )) }
             </ul>
         </>
