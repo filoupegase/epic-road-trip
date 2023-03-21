@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import useSWR from 'swr'
 import type { Person, ResponseError } from '@/interface'
+import useSWR from 'swr'
 
 
 const fetcher = async (url: string) => {
@@ -13,9 +13,8 @@ const fetcher = async (url: string) => {
     return data
 }
 
-
 export default function PersonPage() {
-    const { query } = useRouter()
+    const { query } = useRouter();
     const { data, error, isLoading, isValidating } = useSWR<
         Person,
         ResponseError
@@ -24,7 +23,6 @@ export default function PersonPage() {
     if (error) return <div>{ error.message }</div>
     if (isLoading) return <div>Loading...</div>
     if (!data) return null
-
 
     return (
         <table>

@@ -36,12 +36,20 @@ export default function Home() {
     const router = useRouter();
     const [value, setValue] = useState<string>('');
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        if (value.length != 0) {
-            //router.push(`/profile`)
-        }
-    };
+        const res = await fetch('/api/post', {
+            method: 'POST',
+            body: JSON.stringify({ value }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const data = await res.json();
+        // if (res.status === 201) {
+        //     await router.push(`/post/${ data }`);
+        // }
+    }
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         setValue(e.target.value);
@@ -71,7 +79,7 @@ export default function Home() {
             </StyledPaper>
         </>
     )
-};
+}
 
 const StyledPaper = styled(Paper)(() => ({
     borderRadius: 15,
