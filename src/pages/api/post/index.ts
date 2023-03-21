@@ -10,11 +10,12 @@ export default function handler(
     if (req.method === 'GET') {
         res.status(200).json(comments);
     } else if (req.method === 'POST') {
+        const comments = [];
         const value = req.body.value;
         const newValue = {
             query: value
         }
         comments.push(newValue)
-        res.status(201).json(newValue)
+        res.status(201).json(newValue.query)
     }
 }

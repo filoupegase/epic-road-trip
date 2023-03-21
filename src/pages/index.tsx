@@ -31,7 +31,6 @@ const dataCardActionsCategory: DataCategory[] = [
     }
 ];
 
-
 export default function Home() {
     const router = useRouter();
     const [value, setValue] = useState<string>('');
@@ -46,9 +45,9 @@ export default function Home() {
             }
         })
         const data = await res.json();
-        // if (res.status === 201) {
-        //     await router.push(`/post/${ data }`);
-        // }
+        if (res.status === 201) {
+            await router.push(`/post/${ data }`);
+        }
     }
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {

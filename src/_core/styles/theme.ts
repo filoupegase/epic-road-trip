@@ -7,8 +7,13 @@ const theme = createTheme({
             main: '#000',
         },
         secondary: {
-            main: '#3861fb',
+            main: '#ff5d5d',
         }
+    },
+    typography: {
+      h3: {
+          fontWeight: 700
+      }
     },
     components: {
         MuiButton: {
