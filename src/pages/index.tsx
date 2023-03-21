@@ -8,6 +8,7 @@ import KingBedOutlinedIcon from '@mui/icons-material/KingBedOutlined';
 import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
 import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import HotelOffers from "./hotels";
 
 
 interface DataCategory {
@@ -76,6 +77,7 @@ export default function Home() {
                     value={ value }
                 />
             </StyledPaper>
+            <HotelOffers />
         </>
     )
 }
