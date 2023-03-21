@@ -1,12 +1,14 @@
-export type Activities = {
-    location_id: string
+export type Person = {
+    id: string
     name: string
-    address_obj: {
-        street1: string
-        street2?: string
-        city: string
-        country: string
-        postalcode: string
-        address_string: string
-    }
+    height: string
+    mass: string
+    hair_color: string
+    skin_color: string
+    eye_color: string
+    gender: string
+}
+
+export type ResponseError = {
+    message: string
 }
