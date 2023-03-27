@@ -73,6 +73,7 @@ export default function Home() {
                     placeholder="Where to?"
                     inputProps={ { 'aria-label': 'search google maps' } }
                     fullWidth
+                    id="search-bar"
                     onChange={ handleChange }
                     value={ value }
                 />

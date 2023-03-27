@@ -3,6 +3,16 @@
 # Script to setup and deploy the second git repository for the project
 # The second git repository is used for the github action
 
+# Run Cypress tests
+echo 'Running Cypress tests 🧪'
+npx cypress run --spec "cypress/integration/**/*"
+
+# Check if the tests passed
+if [ $? -ne 0 ]; then
+  echo "Cypress tests failed ❌"
+  exit 1
+fi
+
 echo 'start deploy on Vercel <-----'
 git remote remove origin
 git remote remove all
