@@ -2,6 +2,7 @@ import React, { useState, PropsWithChildren, SyntheticEvent } from 'react';
 import { Box, Button, DialogContent, Tabs, Tab } from '@mui/material';
 import styled from "styled-components";
 import DialogLayout from "@/_common/components/Dialog/DialogLayout";
+import LogInForm from "@/business/Dialog/LogInForm";
 
 
 type TabPanelProps = PropsWithChildren<{
@@ -28,7 +29,7 @@ function TabPanel({ children, value, index }: TabPanelProps) {
 }
 
 const Header = () => {
-    const [open, setOpen] = useState<boolean>(false);
+    const [open, setOpen] = useState<boolean>(true);
     const [value, setValue] = useState<number>(0);
 
     const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -63,7 +64,7 @@ const Header = () => {
                             <StyledTab label="Sign Up" />
                         </Tabs>
                         <TabPanel value={ value } index={ 0 }>
-                            <p>login _component with : { value }</p>
+                            <LogInForm />
                         </TabPanel>
                         <TabPanel value={ value } index={ 1 }>
                             <p>login _component with : { value }</p>
@@ -94,6 +95,7 @@ const Nav = styled(Box)(() => ({
         margin: "0 auto",
     })
 );
+
 
 // @ts-ignore
 const StyledTab = styled(Tab)(() => ({

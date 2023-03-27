@@ -1,6 +1,6 @@
 import { FormEvent, useState, ChangeEventHandler } from "react";
 import { useRouter } from 'next/router'
-import { Paper, InputBase, IconButton, Stack } from '@mui/material';
+import { Paper, InputBase, IconButton, Stack, Box } from '@mui/material';
 import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 import CardActionsCategory from "@/_common/components/CardActionsCategory";
@@ -8,7 +8,6 @@ import KingBedOutlinedIcon from '@mui/icons-material/KingBedOutlined';
 import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
 import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import HotelOffers from "./hotels";
 
 
 interface DataCategory {
@@ -63,21 +62,22 @@ export default function Home() {
                 }) }
             </Stack>
             <StyledPaper
-                // @ts-ignore
-                component="form"
                 elevation={ 3 }>
-                <IconButton onClick={ handleSubmit } sx={ { p: '10px', mr: 1 } } aria-label="menu">
-                    <SearchIcon color='primary' />
-                </IconButton>
-                <InputBase
-                    placeholder="Where to?"
-                    inputProps={ { 'aria-label': 'search google maps' } }
-                    fullWidth
-                    onChange={ handleChange }
-                    value={ value }
-                />
+                <form onSubmit={ handleSubmit }>
+                    <Box sx={ { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } }>
+                        <IconButton sx={ { p: '10px', mr: 1 } } aria-label="menu">
+                            <SearchIcon color='primary' />
+                        </IconButton>
+                        <InputBase
+                            placeholder="Where to?"
+                            inputProps={ { 'aria-label': 'search google maps' } }
+                            fullWidth
+                            onChange={ handleChange }
+                            value={ value }
+                        />
+                    </Box>
+                </form>
             </StyledPaper>
-            <HotelOffers />
         </>
     )
 }
@@ -86,7 +86,5 @@ const StyledPaper = styled(Paper)(() => ({
     borderRadius: 15,
     padding: '7px 11px',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     width: "100%",
 }));

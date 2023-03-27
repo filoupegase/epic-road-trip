@@ -12,3 +12,8 @@ export type Person = {
 export type ResponseError = {
     message: string
 }
+
+export interface LoginForm {
+    email: string
+    password: string
+}
