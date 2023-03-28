@@ -1,0 +1,46 @@
+version: "3.9"
+services:
+  app:
+    env_file: ./app/.env.local
+    build:
+      context: ./app
+      dockerfile: ./Dockerfile
+    container_name: app
+    restart: always
+    networks: 
+      - proxy
+    volumes:
+      - ./:/usr/src/app
+      - ./app/public:/app/public
+    depends_on:
+      - db
+    ports:
+      - "10001:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.website.rule=Host(`roadtrip.icaro.fr`)"
+      - "traefik.http.services.website.loadbalancer.server.port=3000"
+      - "traefik.http.routers.website.tls=true"
+      - "traefik.http.routers.website.tls.certresolver=letsencrypt"
+      - "traefik.docker.network=proxy"
+
+  db:
+    image: postgres:15
+    container_name: db
+    restart: always
+    networks: 
+      - proxy
+    # build:
+    #   context: ./db
+    #   dockerfile: ./Dockerfile
+    env_file: ./app/.env.local
+    ports:
+      - "10002:5432"
+    volumes:
+      - ./db/postgres:/var/lib/postgresql/data
+
+networks:
+  road_trip:
+    driver: bridge
+  proxy:
+    external: true
