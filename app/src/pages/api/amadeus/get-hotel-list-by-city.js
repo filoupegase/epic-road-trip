@@ -17,8 +17,10 @@ const amadeus = new Amadeus({
  * @param {NextApiResponse} res - The Next.js API response object.
  * @returns {Promise<Object>} A promise that resolves to a JSON object containing information about hotels located within 25 kilometers of the latitude and longitude coordinates of the city, or an error message if the request is unsuccessful.
  * @example
- * // Returns a JSON object containing information about hotels located within 25 kilometers of the latitude and longitude coordinates of the city "CITY_NAME".
- * getHotelListByCity({ query: { city: "CITY_NAME" } }, res);
+ * // Example payload:
+ * // ?city=CITY_NAME
+ *
+ * getHotelListByCity(req, res);
  */
 function getHotelListByCity(req, res) {
   return new Promise(async (resolve) => {

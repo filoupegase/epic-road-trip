@@ -1,8 +1,33 @@
+/**
+ * @module api/user/login
+ */
 import { hashAndSalt } from "src/_common/components/Toolbox/server";
 import pool from "server/db";
 import { sign } from "jsonwebtoken";
 
-export default async function (req, res) {
+/**
+ * Registers a user.
+ * @function
+ * @async
+ * @param {NextApiRequest} req - The HTTP request object.
+ * @param {string} req.body.email - The email address of the user.
+ * @param {string} req.body.password - The password of the user.
+ * @param {string} req.body.passwordCheck - The password of the user, for verification.
+ * @param {NextApiResponse} res - The HTTP response object.
+ * @returns {Promise<Object>} A promise that resolves to a JSON object containing a JWT token, or an error message if the request is unsuccessful.
+ * @throws {Error} 400 - Bad request error.
+ * @throws {Error} 401 - Unauthorized error.
+ * @example
+ * // Example payload:
+ * // {
+ * //   "email": "example@example.com",
+ * //   "password": "password",
+ * //   "passwordCheck": "password"
+ * // }
+ *
+ * register(req, res);
+ */
+function register(req, res) {
   return new Promise(async (resolve) => {
     try {
       if (req.method !== "POST") {
