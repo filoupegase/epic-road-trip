@@ -16,7 +16,11 @@ export const initialState = {
 export const login = createAsyncThunk('auth/login',
     async ({ email, password }: LoginForm,
            { rejectWithValue }): Promise<any> => {
-        console.log(email, password);
+        try {
+
+        } catch (error) {
+            console.error(error);
+        }
     }
 );
 

@@ -21,8 +21,6 @@ const LogInForm = ({}: LogInFormProps) => {
             : setInitialForm({ ...initialForm, password: e.target.value })
     };
 
-    console.log(initialForm.password);
-
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         appDispatch(login({

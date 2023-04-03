@@ -36,12 +36,12 @@ const Header = () => {
         setValue(newValue);
     };
 
-    const handleClickLogin = () => {
+    const handleClickOpenLoginDialog = () => {
         setOpen(!open);
         setValue(0);
     };
 
-    const handleClickSignUp = () => {
+    const handleClickOpenSignUpDialog = () => {
         setOpen(!open);
         setValue(1);
     };
@@ -51,13 +51,18 @@ const Header = () => {
             <Wrapper component='header'>
                 <Nav component='nav'>
                     <Box>
-                        <Button sx={ { mr: 1 } } onClick={ handleClickLogin } variant='outlined'>Login</Button>
-                        <Button variant='contained' onClick={ handleClickSignUp } disableElevation>Sign Up</Button>
+                        <Button sx={ { mr: 1 } } onClick={ handleClickOpenLoginDialog }
+                                variant='outlined'>
+                            Login
+                        </Button>
+                        <Button variant='contained' onClick={ handleClickOpenSignUpDialog } disableElevation>
+                            Sign Up
+                        </Button>
                     </Box>
                 </Nav>
             </Wrapper>
             { open &&
-                <DialogLayout onClose={ handleClickLogin } open={ open }>
+                <DialogLayout onClose={ handleClickOpenLoginDialog } open={ open }>
                     <DialogContent>
                         <Tabs value={ value } onChange={ handleChange } centered>
                             <StyledTab label="Log In" />
