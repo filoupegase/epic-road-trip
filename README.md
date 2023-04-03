@@ -4,6 +4,12 @@ Your ultimate travel companion.
 
 ## Getting Started
 
+### Dev environment
+
+You don't need Docker to run this app in a dev environment. Just make sure that the env variables are correctly placed and the DB is imported. Then, you can just run the app normally with `npm install` and `npm run dev`.
+
+### Production environment
+
 This application is dockerized. To run it, execute the following command in the root directory of the project:
 
 `docker-compose up -d --force-recreate --build`
@@ -25,10 +31,6 @@ They can be updated by the `npm run docs` command.
 ## Deployment
 
 This application utilizes Traefik as a reverse proxy tool and for domain/subdomain management. It's currently deployed at https://roadtrip.icaro.fr.
-
-## Dev environment
-
-You don't need Docker to run this app in a dev environment. Just make sure that the env variables are correctly placed and the DB is imported. Then, you can just run the app normally with `npm install` and `npm run dev`.
 
 ## License
 
