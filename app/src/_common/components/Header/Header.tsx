@@ -29,8 +29,8 @@ function TabPanel({ children, value, index }: TabPanelProps) {
 }
 
 const Header = () => {
-    const [open, setOpen] = useState<boolean>(true);
-    const [value, setValue] = useState<number>(1);
+    const [open, setOpen] = useState<boolean>(false);
+    const [value, setValue] = useState<number>(0);
 
     const handleChange = (event: SyntheticEvent, newValue: number) => {
         setValue(newValue);

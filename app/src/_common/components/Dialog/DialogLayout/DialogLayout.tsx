@@ -14,11 +14,11 @@ export interface DialogTitleProps {
 function CustomDialogTitle(props: DialogTitleProps) {
     const { children, onClose, isTitle, ...other } = props;
 
-    function isT() {
+    function isT(): 2 | 1 {
         if (isTitle) {
             return 2
         } else {
-            return 0
+            return 1
         }
     }
 
