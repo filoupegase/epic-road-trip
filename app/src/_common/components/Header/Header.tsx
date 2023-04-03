@@ -2,7 +2,7 @@ import React, { useState, PropsWithChildren, SyntheticEvent } from 'react';
 import { Box, Button, DialogContent, Tabs, Tab } from '@mui/material';
 import styled from "styled-components";
 import DialogLayout from "@/_common/components/Dialog/DialogLayout";
-import LogInForm from "@/business/Dialog/LogInForm";
+import LogInForm from '@/business/Dialog/LoginForm';
 
 
 type TabPanelProps = PropsWithChildren<{
@@ -11,7 +11,6 @@ type TabPanelProps = PropsWithChildren<{
 }>
 
 function TabPanel({ children, value, index }: TabPanelProps) {
-
     return (
         <Box
             role="tabpanel"
@@ -95,7 +94,6 @@ const Nav = styled(Box)(() => ({
         margin: "0 auto",
     })
 );
-
 
 // @ts-ignore
 const StyledTab = styled(Tab)(() => ({
