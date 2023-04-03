@@ -3,6 +3,7 @@ import { Box, Button, DialogContent, Tabs, Tab } from '@mui/material';
 import styled from "styled-components";
 import DialogLayout from "@/_common/components/Dialog/DialogLayout";
 import LogInForm from '@/business/Dialog/LoginForm';
+import SignUpForm from "@/business/Dialog/SignUpForm";
 
 
 type TabPanelProps = PropsWithChildren<{
@@ -29,7 +30,7 @@ function TabPanel({ children, value, index }: TabPanelProps) {
 
 const Header = () => {
     const [open, setOpen] = useState<boolean>(true);
-    const [value, setValue] = useState<number>(0);
+    const [value, setValue] = useState<number>(1);
 
     const handleChange = (event: SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -66,7 +67,7 @@ const Header = () => {
                             <LogInForm />
                         </TabPanel>
                         <TabPanel value={ value } index={ 1 }>
-                            <p>login _component with : { value }</p>
+                            <SignUpForm />
                         </TabPanel>
                     </DialogContent>
                 </DialogLayout>
