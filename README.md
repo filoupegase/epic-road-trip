@@ -18,7 +18,7 @@ You don't need Docker to run this app in a dev environment. Just make sure that 
 
 ## Prerequisites
 
-- This application requires a PostgreSQL database.
+- This application requires a PostgreSQL runtime and an empty database named `road_trip`, so create one if it doesn't exist.
 - The database export can be found at `./db/dbexport.pgsql` and it can be restored using the `psql` command.
 - An `.env.local` file is required inside the `app` directory for it to properly function. As this file contains sensitive information, it is not included in the repository. Please request it from your collaborators.
 
