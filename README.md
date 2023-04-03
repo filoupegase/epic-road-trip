@@ -21,7 +21,7 @@ Please ensure that Docker is installed before running the command.
 
 ## API Documentation
 
-The API documentation can be found in the `docs` folder and consists of a collection of static HTML files. These files can be served using any web server.
+The API documentation can be found in the `app/docs` folder and consists of a collection of static HTML files. These files can be served using any web server.
 
 ## License
 
