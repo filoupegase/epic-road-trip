@@ -30,9 +30,6 @@ services:
     restart: always
     networks: 
       - proxy
-    # build:
-    #   context: ./db
-    #   dockerfile: ./Dockerfile
     env_file: ./app/.env.local
     ports:
       - "10002:5432"
