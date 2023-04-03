@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: api/user/login</title>
+    <title>JSDoc: Module: api/amadeus/get-points-of-interest</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: api/user/login</h1>
+    <h1 class="page-title">Module: api/amadeus/get-points-of-interest</h1>
 
     
 
@@ -67,7 +67,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user_login.js.html">user/login.js</a>, <a href="user_login.js.html#line1">line 1</a>
+        <a href="amadeus_get-points-of-interest.js.html">amadeus/get-points-of-interest.js</a>, <a href="amadeus_get-points-of-interest.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -106,7 +106,7 @@
     
 
     
-    <h4 class="name" id="~login"><span class="type-signature">(async, inner) </span>login<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    <h4 class="name" id="~getPointsOfInterest"><span class="type-signature">(async, inner) </span>getPointsOfInterest<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;void>}</span></h4>
     
 
     
@@ -114,7 +114,7 @@
 
 
 <div class="description">
-    <p>Logs in a user.</p>
+    <p>Fetches points of interest for a given city.</p>
 </div>
 
 
@@ -166,7 +166,7 @@
 
             
 
-            <td class="description last"><p>The HTTP request object.</p>
+            <td class="description last"><p>The Next.js API request object.</p>
                 <h6>Properties</h6>
                 
 
@@ -208,14 +208,14 @@
 
             
 
-            <td class="description last"><p>&quot;POST&quot;</p></td>
+            <td class="description last"><p>&quot;GET&quot;</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>headers["Content-Type"</code></td>
+                <td class="name"><code>query.city</code></td>
             
 
             <td class="type">
@@ -231,53 +231,7 @@
 
             
 
-            <td class="description last"><p>&quot;application/json&quot;</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>body.email</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The email address of the user.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>body.password</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The password of the user.</p></td>
+            <td class="description last"><p>The city for which points of interest are being requested.</p></td>
         </tr>
 
     
@@ -307,7 +261,7 @@
 
             
 
-            <td class="description last"><p>The HTTP response object.</p></td>
+            <td class="description last"><p>The Next.js API response object.</p></td>
         </tr>
 
     
@@ -348,7 +302,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user_login.js.html">user/login.js</a>, <a href="user_login.js.html#line32">line 32</a>
+        <a href="amadeus_get-points-of-interest.js.html">amadeus/get-points-of-interest.js</a>, <a href="amadeus_get-points-of-interest.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -371,69 +325,13 @@
 
 
 
-<h5>Throws:</h5>
-<ul>
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>400 - Bad request error.</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
-    
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>401 - Unauthorized error.</p>
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
-    </ul>
 
 
 <h5>Returns:</h5>
 
         
 <div class="param-desc">
-    <p>A promise that resolves to a JSON object containing a JWT token, or an error message if the request is unsuccessful.</p>
+    <p>A promise that resolves when the response is sent.</p>
 </div>
 
 
@@ -444,7 +342,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;Object></span>
+<span class="param-type">Promise.&lt;void></span>
 
 
     </dd>
@@ -458,12 +356,9 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>// Example payload:
-// {
-//   "email": "example@example.com",
-//   "password": "password"
-// }
+// ?city=CITY_NAME
 
-login(req, res);</code></pre>
+getPointsOfInterest(req, res);</code></pre>
 
 
 
