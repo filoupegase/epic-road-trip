@@ -26,6 +26,10 @@ They can be updated by the `npm run docs` command.
 
 This application utilizes Traefik as a reverse proxy tool and for domain/subdomain management. It's currently deployed at https://roadtrip.icaro.fr.
 
+## Dev environment
+
+You don't need Docker to run this app in a dev environment. Just make sure that the env variables are correctly placed and the DB is imported. Then, you can just run the app normally with `npm install` and `npm run dev`.
+
 ## License
 
 This project is licensed under the MIT License, which is a permissive open-source software license. It allows for unlimited modification, distribution, and private use of the software, provided that the license and copyright notice is included in all copies or substantial portions of the software.
