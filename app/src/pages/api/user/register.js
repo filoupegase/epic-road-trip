@@ -1,5 +1,5 @@
 /**
- * @module api/user/login
+ * @module api/user/register
  */
 import { hashAndSalt } from "src/_common/components/Toolbox/server";
 import pool from "server/db";
@@ -102,3 +102,5 @@ function register(req, res) {
     }
   });
 }
+
+export default register;
