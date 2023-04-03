@@ -13,7 +13,7 @@ import pool from "server/db";
  * @async
  * @param {NextApiRequest} req - The HTTP request object.
  * @param {string} req.method - "POST"
- * @param {string} req.headers["Content-Type"] - application/json
+ * @param {string} req.headers["Content-Type"] - "application/json"
  * @param {string} req.body.email - The email address of the user.
  * @param {string} req.body.password - The password of the user.
  * @param {NextApiResponse} res - The HTTP response object.
