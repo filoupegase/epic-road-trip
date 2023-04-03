@@ -4,15 +4,21 @@ Your ultimate travel companion.
 
 ## Getting Started
 
+### Production environment
+
 This application is dockerized. To run it, execute the following command in the root directory of the project:
 
 `docker-compose up -d --force-recreate --build`
 
 Make sure that you have Docker installed before running the command.
 
+### Dev environment
+
+You don't need Docker to run this app in a dev environment. Just make sure that the env variables are correctly placed and the DB is imported. Then, you can just run the app normally with `npm install` and `npm run dev`.
+
 ## Prerequisites
 
-- This application requires a PostgreSQL database.
+- This application requires a PostgreSQL runtime and an empty database named `road_trip`, so create one if it doesn't exist.
 - The database export can be found at `./db/dbexport.pgsql` and it can be restored using the `psql` command.
 - An `.env.local` file is required inside the `app` directory for it to properly function. As this file contains sensitive information, it is not included in the repository. Please request it from your collaborators.
 
@@ -25,10 +31,6 @@ They can be updated by the `npm run docs` command.
 ## Deployment
 
 This application utilizes Traefik as a reverse proxy tool and for domain/subdomain management. It's currently deployed at https://roadtrip.icaro.fr.
-
-## Dev environment
-
-You don't need Docker to run this app in a dev environment. Just make sure that the env variables are correctly placed and the DB is imported. Then, you can just run the app normally with `npm install` and `npm run dev`.
 
 ## License
 
