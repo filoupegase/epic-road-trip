@@ -59,7 +59,7 @@ const Header = () => {
                 <DialogLayout onClose={ handleClickLogin } open={ open }>
                     <DialogContent>
                         <Tabs value={ value } onChange={ handleChange } centered>
-                            <StyledTab label="Login" />
+                            <StyledTab label="Log In" />
                             <StyledTab label="Sign Up" />
                         </Tabs>
                         <TabPanel value={ value } index={ 0 }>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, ChangeEvent } from "react";
 import { LoginForm } from "@/interface";
-import { TextField, Box } from '@mui/material';
+import { TextField, Box, Button } from '@mui/material';
 
 
 type LogInFormProps = {}
@@ -29,6 +29,12 @@ const LogInForm = ({}: LogInFormProps) => {
              } }>
             <TextField id="email" label="Email" variant="outlined" type='email' onChange={ handleChange } />
             <TextField id="password" label="Password" variant="outlined" type='password' onChange={ handleChange } />
+            <Box
+                display='flex'
+                justifyContent='flex-end'
+            >
+                <Button type='submit' variant="contained" disableElevation>Log In</Button>
+            </Box>
         </Box>
     )
 }
