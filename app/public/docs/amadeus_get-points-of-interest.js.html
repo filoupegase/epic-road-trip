@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: amadeus/get-hotel-by-id.js</title>
+    <title>JSDoc: Source: amadeus/get-points-of-interest.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: amadeus/get-hotel-by-id.js</h1>
+    <h1 class="page-title">Source: amadeus/get-points-of-interest.js</h1>
 
     
 
@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @module api/amadeus/get-hotel-by-id
+ * @module api/amadeus/get-points-of-interest
  */
 
 import Amadeus from "amadeus";
@@ -39,37 +39,44 @@ const amadeus = new Amadeus({
 });
 
 /**
- * Fetches information about a specific hotel, based on the hotel's ID.
+ * Fetches points of interest for a given city.
  *
  * @function
  * @async
  * @param {NextApiRequest} req - The Next.js API request object.
- * @param {string} req.query.id - The ID of the hotel for which data is being requested.
- * @param {string} req.query.adults - The number of adults for the hotel search (optional, defaults to 1).
- * @param {string} req.query.checkInDate - The check-in date for the hotel search.
- * @param {string} req.query.checkOutDate - The check-out date for the hotel search.
+ * @param {string} req.query.city - The city for which points of interest are being requested.
  * @param {NextApiResponse} res - The Next.js API response object.
  * @returns {Promise&lt;void>} A promise that resolves when the response is sent.
  * @example
  * // Example payload:
- * // ?id=HOTEL_ID&amp;adults=NUMBER_OF_ADULTS&amp;checkInDate=CHECK_IN_DATE&amp;checkOutDate=CHECK_OUT_DATE
+ * // ?city=CITY_NAME
  *
- * getHotelById(req, res);
+ * getPointsOfInterest(req, res);
  */
-function getHotelById(req, res) {
+function getPointsOfInterest(req, res) {
   return new Promise(async (resolve) => {
     if (req.method !== "GET") {
       return resolve(res.status(400).json({ message: "Invalid method." }));
     }
 
+    let latitude, longitude;
     try {
-      return amadeus.shopping.hotelOffersSearch
-        .get({
-          hotelIds: req.query.id,
-          adults: req.query.adults || 1,
-          checkInDate: req.query.checkInDate,
-          checkOutDate: req.query.checkOutDate,
-        })
+      const getCoordinates = await fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${req.query.city}&amp;limit=1&amp;appid=${process.env.OPENWEATHER_KEY}`
+      ).then((res) => res.json());
+
+      if (
+        getCoordinates.length &lt; 1 ||
+        String(getCoordinates?.cod)[0] == ("4" || "5")
+      ) {
+        return resolve(res.status(400).json({ message: "Invalid city." }));
+      }
+
+      latitude = getCoordinates[0]?.lat;
+      longitude = getCoordinates[0]?.lon;
+
+      return amadeus.referenceData.locations.pointsOfInterest
+        .get({ latitude, longitude, radius: 25, radiusUnit: "KM" })
         .then((response) => {
           return resolve(res.status(200).json(response.data));
         })
@@ -82,7 +89,7 @@ function getHotelById(req, res) {
   });
 }
 
-export default getHotelById;
+export default getPointsOfInterest;
 </code></pre>
         </article>
     </section>
