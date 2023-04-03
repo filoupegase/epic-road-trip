@@ -1,7 +1,29 @@
+/**
+ * @module api/user/google
+ */
 import { sign } from "jsonwebtoken";
 import pool from "server/db";
 
-export default function (req, res) {
+/**
+ * Logs in a user with Google.
+ * @function
+ * @async
+ * @param {NextApiRequest} req - The HTTP request object.
+ * @param {string} req.body.googleTokenId - The Google token ID of the user.
+ * @param {string} req.body.email - The email address of the user.
+ * @param {NextApiResponse} res - The HTTP response object.
+ * @returns {Promise<Object>} A promise that resolves to a JSON object containing a JWT token, or an error message if the request is unsuccessful.
+ * @throws {Error} 400 - Bad request error.
+ * @throws {Error} 401 - Unauthorized error.
+ * @example
+ * // Example payload:
+ * // {
+ * //   "googleTokenId": "G00G13T0K3N1D",
+ * //   "email": "example@example.com"
+ * // }
+ * google(req, res);
+ */
+function google(req, res) {
   function createToken(userId) {
     return sign(
       { id: userId, iss: "road_trip" },
@@ -26,7 +48,7 @@ export default function (req, res) {
     return res.status(400).json({ message: "No token provided." });
   }
 
-  const { googleTokenId, email, pseudo } = req.body;
+  const { googleTokenId, email } = req.body;
 
   return new Promise(async (resolve) => {
     try {
@@ -50,3 +72,5 @@ export default function (req, res) {
     }
   });
 }
+
+export default google;
