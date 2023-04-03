@@ -17,7 +17,7 @@ Please ensure that Docker is installed before running the command.
 - This application requires a PostgreSQL database.
 - The database export can be found at `./db/dbexport.pgsql` and it can be restored using the `psql` command.
 - This application utilizes Traefik as a reverse proxy tool and for domain/subdomain management.
-- An `.env.local` file is required in the root of the application directory for proper functioning. As this file contains sensitive information, it is not included in the repository. Please request it from your collaborators.
+- An `.env.local` file is required inside the `app` directory for it to properly function. As this file contains sensitive information, it is not included in the repository. Please request it from your collaborators.
 
 ## API Documentation
 
