@@ -41,7 +41,7 @@
     "babel-plugin-styled-components": "^2.0.7",
     "cypress": "^12.9.0",
     "jsdoc": "^4.0.2",
-    "typescript": "latest"
+    "typescript": "^4.0.0"
   },
   "cacheDirectories": [
     "node_modules",

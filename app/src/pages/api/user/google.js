@@ -9,7 +9,8 @@ import pool from "server/db";
  * @function
  * @async
  * @param {NextApiRequest} req - The HTTP request object.
- * @param {string} req.method - POST
+ * @param {string} req.method - "POST"
+ * @param {string} req.headers["Content-Type"] - application/json
  * @param {string} req.body.googleTokenId - The Google token ID of the user.
  * @param {string} req.body.email - The email address of the user.
  * @param {NextApiResponse} res - The HTTP response object.

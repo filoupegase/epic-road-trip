@@ -16,7 +16,7 @@ const amadeus = new Amadeus({
  * @function
  * @async
  * @param {NextApiRequest} req - The Next.js API request object.
- * @param {string} req.method - GET
+ * @param {string} req.method - "GET"
  * @param {string} req.query.id - The ID of the hotel for which data is being requested.
  * @param {string} req.query.adults - The number of adults for the hotel search (optional, defaults to 1).
  * @param {string} req.query.checkInDate - The check-in date for the hotel search.
