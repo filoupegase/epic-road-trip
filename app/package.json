@@ -39,6 +39,7 @@
     "@types/react-dom": "latest",
     "@types/styled-components": "latest",
     "babel-plugin-styled-components": "^2.0.7",
+    "cypress": "^12.9.0",
     "jsdoc": "^4.0.2",
     "typescript": "latest"
   },

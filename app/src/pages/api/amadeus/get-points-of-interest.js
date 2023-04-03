@@ -16,6 +16,7 @@ const amadeus = new Amadeus({
  * @function
  * @async
  * @param {NextApiRequest} req - The Next.js API request object.
+ * @param {string} req.method - GET
  * @param {string} req.query.city - The city for which points of interest are being requested.
  * @param {NextApiResponse} res - The Next.js API response object.
  * @returns {Promise<void>} A promise that resolves when the response is sent.

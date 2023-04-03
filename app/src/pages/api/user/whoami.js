@@ -11,6 +11,7 @@ import pool from "server/db";
  * @function
  * @async
  * @param {Object} req - The HTTP request object.
+ * @param {string} req.method - GET
  * @param {string} req.cookies.token - The JWT token for the current user.
  * @param {Object} res - The HTTP response object.
  * @returns {Promise<Object>} A promise that resolves to a JSON object containing information about the current user, or an error message if the request is unsuccessful.

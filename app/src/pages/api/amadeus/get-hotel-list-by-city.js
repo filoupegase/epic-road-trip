@@ -13,6 +13,7 @@ const amadeus = new Amadeus({
 /**
  * Fetches information about hotels located in a specific city, based on the latitude and longitude coordinates of that city.
  * @param {NextApiRequest} req - The Next.js API request object.
+ * @param {string} req.method - GET
  * @param {string} req.query.city - The name of the city for which hotel data is being requested.
  * @param {NextApiResponse} res - The Next.js API response object.
  * @returns {Promise<Object>} A promise that resolves to a JSON object containing information about hotels located within 25 kilometers of the latitude and longitude coordinates of the city, or an error message if the request is unsuccessful.
