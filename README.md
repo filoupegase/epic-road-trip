@@ -10,8 +10,6 @@ This application is dockerized. To run it, execute the following command in the 
 
 Make sure that you have Docker installed before running the command.
 
-Please ensure that Docker is installed before running the command.
-
 ## Prerequisites
 
 - This application requires a PostgreSQL database.
