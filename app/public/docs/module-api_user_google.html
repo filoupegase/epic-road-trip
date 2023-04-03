@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: api/amadeus/get-hotel-by-id</title>
+    <title>JSDoc: Module: api/user/google</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: api/amadeus/get-hotel-by-id</h1>
+    <h1 class="page-title">Module: api/user/google</h1>
 
     
 
@@ -67,7 +67,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="amadeus_get-hotel-by-id.js.html">amadeus/get-hotel-by-id.js</a>, <a href="amadeus_get-hotel-by-id.js.html#line1">line 1</a>
+        <a href="user_google.js.html">user/google.js</a>, <a href="user_google.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -106,7 +106,7 @@
     
 
     
-    <h4 class="name" id="~getHotelById"><span class="type-signature">(async, inner) </span>getHotelById<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;void>}</span></h4>
+    <h4 class="name" id="~google"><span class="type-signature">(async, inner) </span>google<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
     
 
     
@@ -114,7 +114,7 @@
 
 
 <div class="description">
-    <p>Fetches information about a specific hotel, based on the hotel's ID.</p>
+    <p>Logs in a user with Google.</p>
 </div>
 
 
@@ -166,7 +166,7 @@
 
             
 
-            <td class="description last"><p>The Next.js API request object.</p>
+            <td class="description last"><p>The HTTP request object.</p>
                 <h6>Properties</h6>
                 
 
@@ -192,7 +192,7 @@
 
         <tr>
             
-                <td class="name"><code>query.id</code></td>
+                <td class="name"><code>body.googleTokenId</code></td>
             
 
             <td class="type">
@@ -208,14 +208,14 @@
 
             
 
-            <td class="description last"><p>The ID of the hotel for which data is being requested.</p></td>
+            <td class="description last"><p>The Google token ID of the user.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>query.adults</code></td>
+                <td class="name"><code>body.email</code></td>
             
 
             <td class="type">
@@ -231,53 +231,7 @@
 
             
 
-            <td class="description last"><p>The number of adults for the hotel search (optional, defaults to 1).</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>query.checkInDate</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The check-in date for the hotel search.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>query.checkOutDate</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The check-out date for the hotel search.</p></td>
+            <td class="description last"><p>The email address of the user.</p></td>
         </tr>
 
     
@@ -307,7 +261,7 @@
 
             
 
-            <td class="description last"><p>The Next.js API response object.</p></td>
+            <td class="description last"><p>The HTTP response object.</p></td>
         </tr>
 
     
@@ -348,7 +302,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="amadeus_get-hotel-by-id.js.html">amadeus/get-hotel-by-id.js</a>, <a href="amadeus_get-hotel-by-id.js.html#line31">line 31</a>
+        <a href="user_google.js.html">user/google.js</a>, <a href="user_google.js.html#line26">line 26</a>
     </li></ul></dd>
     
 
@@ -371,13 +325,69 @@
 
 
 
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>400 - Bad request error.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>401 - Unauthorized error.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
 
 
 <h5>Returns:</h5>
 
         
 <div class="param-desc">
-    <p>A promise that resolves when the response is sent.</p>
+    <p>A promise that resolves to a JSON object containing a JWT token, or an error message if the request is unsuccessful.</p>
 </div>
 
 
@@ -388,7 +398,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;void></span>
+<span class="param-type">Promise.&lt;Object></span>
 
 
     </dd>
@@ -402,9 +412,11 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>// Example payload:
-// ?id=HOTEL_ID&amp;adults=NUMBER_OF_ADULTS&amp;checkInDate=CHECK_IN_DATE&amp;checkOutDate=CHECK_OUT_DATE
-
-getHotelById(req, res);</code></pre>
+// {
+//   "googleTokenId": "G00G13T0K3N1D",
+//   "email": "example@example.com"
+// }
+google(req, res);</code></pre>
 
 
 
