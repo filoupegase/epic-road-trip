@@ -23,8 +23,10 @@ const amadeus = new Amadeus({
  * @param {NextApiResponse} res - The Next.js API response object.
  * @returns {Promise<void>} A promise that resolves when the response is sent.
  * @example
- * // Returns a JSON object containing information about the hotel with ID "HOTEL_ID".
- * getHotelById({ query: { id: "HOTEL_ID", checkInDate: "2023-05-01", checkOutDate: "2023-05-10" } }, res);
+ * // Example payload:
+ * // ?id=HOTEL_ID&adults=NUMBER_OF_ADULTS&checkInDate=CHECK_IN_DATE&checkOutDate=CHECK_OUT_DATE
+ *
+ * getHotelById(req, res);
  */
 function getHotelById(req, res) {
   return new Promise(async (resolve) => {

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: api/amadeus/get-hotel-list-by-city</title>
+    <title>JSDoc: Module: api/user/google</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: api/amadeus/get-hotel-list-by-city</h1>
+    <h1 class="page-title">Module: api/user/google</h1>
 
     
 
@@ -67,7 +67,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="get-hotel-list-by-city.js.html">get-hotel-list-by-city.js</a>, <a href="get-hotel-list-by-city.js.html#line1">line 1</a>
+        <a href="user_google.js.html">user/google.js</a>, <a href="user_google.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -106,7 +106,7 @@
     
 
     
-    <h4 class="name" id="~getHotelListByCity"><span class="type-signature">(inner) </span>getHotelListByCity<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    <h4 class="name" id="~google"><span class="type-signature">(async, inner) </span>google<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
     
 
     
@@ -114,7 +114,7 @@
 
 
 <div class="description">
-    <p>Fetches information about hotels located in a specific city, based on the latitude and longitude coordinates of that city.</p>
+    <p>Logs in a user with Google.</p>
 </div>
 
 
@@ -166,7 +166,7 @@
 
             
 
-            <td class="description last"><p>The Next.js API request object.</p>
+            <td class="description last"><p>The HTTP request object.</p>
                 <h6>Properties</h6>
                 
 
@@ -192,7 +192,7 @@
 
         <tr>
             
-                <td class="name"><code>query.city</code></td>
+                <td class="name"><code>body.googleTokenId</code></td>
             
 
             <td class="type">
@@ -208,7 +208,30 @@
 
             
 
-            <td class="description last"><p>The name of the city for which hotel data is being requested.</p></td>
+            <td class="description last"><p>The Google token ID of the user.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>body.email</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The email address of the user.</p></td>
         </tr>
 
     
@@ -238,7 +261,7 @@
 
             
 
-            <td class="description last"><p>The Next.js API response object.</p></td>
+            <td class="description last"><p>The HTTP response object.</p></td>
         </tr>
 
     
@@ -279,7 +302,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="get-hotel-list-by-city.js.html">get-hotel-list-by-city.js</a>, <a href="get-hotel-list-by-city.js.html#line23">line 23</a>
+        <a href="user_google.js.html">user/google.js</a>, <a href="user_google.js.html#line26">line 26</a>
     </li></ul></dd>
     
 
@@ -302,13 +325,69 @@
 
 
 
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>400 - Bad request error.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>401 - Unauthorized error.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
 
 
 <h5>Returns:</h5>
 
         
 <div class="param-desc">
-    <p>A promise that resolves to a JSON object containing information about hotels located within 25 kilometers of the latitude and longitude coordinates of the city, or an error message if the request is unsuccessful.</p>
+    <p>A promise that resolves to a JSON object containing a JWT token, or an error message if the request is unsuccessful.</p>
 </div>
 
 
@@ -332,8 +411,12 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>// Returns a JSON object containing information about hotels located within 25 kilometers of the latitude and longitude coordinates of the city "CITY_NAME".
-getHotelListByCity({ query: { city: "CITY_NAME" } }, res);</code></pre>
+    <pre class="prettyprint"><code>// Example payload:
+// {
+//   "googleTokenId": "G00G13T0K3N1D",
+//   "email": "example@example.com"
+// }
+google(req, res);</code></pre>
 
 
 
@@ -353,13 +436,13 @@ getHotelListByCity({ query: { city: "CITY_NAME" } }, res);</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_amadeus_get-hotel-by-id.html">api/amadeus/get-hotel-by-id</a></li><li><a href="module-api_amadeus_get-hotel-list-by-city.html">api/amadeus/get-hotel-list-by-city</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_amadeus_get-hotel-by-id.html">api/amadeus/get-hotel-by-id</a></li><li><a href="module-api_amadeus_get-hotel-list-by-city.html">api/amadeus/get-hotel-list-by-city</a></li><li><a href="module-api_user_google.html">api/user/google</a></li><li><a href="module-api_user_login.html">api/user/login</a></li><li><a href="module-api_user_whoami.html">api/user/whoami</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Apr 02 2023 16:53:54 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Apr 03 2023 12:02:08 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>
