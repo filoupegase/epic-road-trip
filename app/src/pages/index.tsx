@@ -73,7 +73,6 @@ export default function Home() {
                         </IconButton>
                         <InputBase
                             placeholder="Where to?"
-                            inputProps={ { 'aria-label': 'search google maps' } }
                             fullWidth
                             onChange={ handleChange }
                             value={ value }

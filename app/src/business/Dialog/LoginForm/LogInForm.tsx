@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { LoginForm } from "@/interface";
 import { useAppDispatch, useAppSelector } from "@/_core/store/store";
 import { TextField, Box, Button } from '@mui/material';
@@ -10,7 +10,9 @@ type LogInFormProps = {}
 
 const LogInForm = ({}: LogInFormProps) => {
     const appDispatch = useAppDispatch();
-    const { loading, error } = useAppSelector((state) => state.auth);
+    const { error } = useAppSelector((state) => state.auth);
+    const [inputError, setInputError] = useState<boolean>(false);
+    const [helperText, setHelperText] = useState<string>('');
     const [initialForm, setInitialForm] = useState<LoginForm>({
         email: '', password: ''
     });
@@ -19,6 +21,8 @@ const LogInForm = ({}: LogInFormProps) => {
         e.target.id === 'email'
             ? setInitialForm({ ...initialForm, email: e.target.value })
             : setInitialForm({ ...initialForm, password: e.target.value })
+        setInputError(false);
+        setHelperText('');
     };
 
     const handleSubmit = (e: FormEvent) => {
@@ -28,6 +32,17 @@ const LogInForm = ({}: LogInFormProps) => {
             password: initialForm.password
         } as LoginForm));
     };
+
+    useEffect(() => {
+        if (error) {
+            setInputError(true);
+            // @ts-ignore
+            if (error && error.data.message) {
+                // @ts-ignore
+                setHelperText(error.data.message);
+            }
+        }
+    }, [error]);
 
     return (
         <form onSubmit={ handleSubmit }>
@@ -39,10 +54,13 @@ const LogInForm = ({}: LogInFormProps) => {
                     mb: 2,
                 },
             } }>
-                <TextField id="email" label="Email" variant="outlined" type='email'
+                <TextField error={ inputError } id="email" label="Email" variant="outlined" type='email'
                            onChange={ handleChange } />
-                <TextField id="password" label="Password" variant="outlined" type='password'
-                           onChange={ handleChange } />
+                <TextField
+                    helperText={ helperText }
+                    error={ inputError } id="password"
+                    label="Password" variant="outlined" type='password'
+                    onChange={ handleChange } />
                 <Box
                     display='flex'
                     justifyContent='flex-end'
