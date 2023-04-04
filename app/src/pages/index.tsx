@@ -10,6 +10,7 @@ import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlin
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import HotelOffers from "./hotels";
 import HotelsList from "../_common/components/Hotels/HotelsList";
+import SearchBar from "../_common/components/Search/searchCities";
 
 interface DataCategory {
   icon: JSX.Element;
@@ -64,29 +65,31 @@ export default function Home() {
           );
         })}
       </Stack>
-      <StyledPaper
+      {/* <StyledPaper
         // @ts-ignore
         component="form"
         elevation={3}
-      >
-        <IconButton
+      > */}
+       {/*  <IconButton
           onClick={handleSubmit}
           sx={{ p: "10px", mr: 1 }}
           aria-label="menu"
         >
           <SearchIcon color="primary" />
-        </IconButton>
-        <InputBase
+        </IconButton> */}
+        {/* */}
+       {/*  <InputBase
           placeholder="Where to ?"
           inputProps={{ "aria-label": "search google maps" }}
           fullWidth
           id="search-bar"
           onChange={handleChange}
           value={value}
-        />
-      </StyledPaper>
-      <HotelOffers />
-      <HotelsList city="New York" />
+        /> */}
+{/*       </StyledPaper>
+ */}      <HotelOffers />
+      {/* <HotelsList city="New York" /> */}
+      <SearchBar></SearchBar> 
     </>
   );
 }
