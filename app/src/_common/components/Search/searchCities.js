@@ -41,7 +41,7 @@ function SearchBar() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Button variant="contained" type="submit">
+        <Button color='primary' variant="contained" type="submit" disableElevation>
           Search
         </Button>
       </form>

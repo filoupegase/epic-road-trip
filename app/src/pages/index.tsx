@@ -11,6 +11,7 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import HotelOffers from "./hotels";
 import HotelsList from "../_common/components/Hotels/HotelsList";
 import SearchBar from "../_common/components/Search/searchCities";
+import DialogSearchFiltered from "@/_common/components/Dialog/DialogSearchFiltered/DialogSearchFiltered";
 
 
 interface DataCategory {
@@ -40,6 +41,15 @@ const dataCardActionsCategory: DataCategory[] = [
 export default function Home() {
     const router = useRouter();
     const [value, setValue] = useState<string>("");
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -85,6 +95,12 @@ export default function Home() {
             <HotelOffers />
             {/* <HotelsList city="New York" /> */ }
             <SearchBar></SearchBar>
+            { open &&
+                <DialogSearchFiltered
+                    open={ open }
+                    onClose={ handleClose }
+                />
+            }
         </>
     );
 }
