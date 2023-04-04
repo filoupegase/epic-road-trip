@@ -8,6 +8,7 @@ import {
     addListener,
 } from '@reduxjs/toolkit'
 import { authSlice } from './services/auth';
+import { registerSlice } from './services/register'
 
 
 const listenerMiddlewareInstance = createListenerMiddleware({
@@ -17,6 +18,7 @@ const listenerMiddlewareInstance = createListenerMiddleware({
 const store = configureStore({
     reducer: {
         [authSlice.name]: authSlice.reducer,
+        [registerSlice.name]: registerSlice.reducer,
     },
     middleware: (gDM) => gDM().prepend(listenerMiddlewareInstance.middleware),
 });

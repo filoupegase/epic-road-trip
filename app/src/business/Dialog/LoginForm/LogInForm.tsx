@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { LoginForm } from "@/interface";
 import { useAppDispatch, useAppSelector } from "@/_core/store/store";
 import { TextField, Box, Button } from '@mui/material';

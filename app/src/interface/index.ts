@@ -24,3 +24,9 @@ export interface SignupForm {
     passwordCheck: string
 }
 
+export interface SignupForm {
+    email: string
+    password: string
+    passwordCheck: string
+}
+
