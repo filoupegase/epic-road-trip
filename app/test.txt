@@ -1,0 +1,81 @@
+
+> epic-road-trip@0.1.0 test /Users/user/wac/msc/road-trip/app
+> cypress run
+
+
+=============================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        12.9.0                                                                         │
+  │ Browser:        Electron 106 (headless)                                                        │
+  │ Node Version:   v16.20.0 (/opt/homebrew/Cellar/node@16/16.20.0/bin/node)                       │
+  │ Specs:          1 found (get-hotel-by-id.cy.js)                                                │
+  │ Searched:       cypress/e2e/**/*.cy.{js,jsx,ts,tsx}                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  get-hotel-by-id.cy.js                                                           (1 of 1)
+
+
+  Amadeus get-hotel-by-id API route
+    1) should return a 400 status code for an invalid method
+
+
+  0 passing (296ms)
+  1 failing
+
+  1) Amadeus get-hotel-by-id API route
+       should return a 400 status code for an invalid method:
+     Error: TypeError: Failed to fetch
+      at eval (webpack:///./cypress/e2e/get-hotel-by-id.cy.js:46:18)
+      at async Context.eval (webpack:///./cypress/e2e/get-hotel-by-id.cy.js:19:8)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      0                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     get-hotel-by-id.cy.js                                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/user/wac/msc/road-trip/app/cypress/screenshots/get-hotel-by-id.cy.js/Amad    (2560x1440)
+     eus get-hotel-by-id API route -- should return a 400 status code for an invalid                
+     method (failed).png                                                                            
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: 0 seconds                                                  
+
+  -  Video output: /Users/user/wac/msc/road-trip/app/cypress/videos/get-hotel-by-id.cy.js.mp4
+
+
+=============================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✖  get-hotel-by-id.cy.js                    295ms        1        -        1        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✖  1 of 1 failed (100%)                     295ms        1        -        1        -        -  
+
+ ELIFECYCLE  Test failed. See above for more details.

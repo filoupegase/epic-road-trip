@@ -43,7 +43,7 @@ function login(req, res) {
           (err, token) => {
             if (err) {
               return resolve(
-                res.status(400).json({
+                res.status(401).json({
                   message: "Invalid token",
                 })
               );
@@ -69,14 +69,14 @@ function login(req, res) {
 
       if (!user?.rows?.length) {
         return resolve(
-          res.status(400).json({ message: "No account with this email." })
+          res.status(401).json({ message: "No account with this email." })
         );
       }
 
       const isMatch = compareHash(password, user.rows[0].password);
 
       if (!isMatch) {
-        return res.status(400).json({ message: "Invalid credentials." });
+        return res.status(401).json({ message: "Invalid credentials." });
       }
 
       return createToken(user.rows[0].id);

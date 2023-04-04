@@ -3,7 +3,6 @@
  */
 
 import Amadeus from "amadeus";
-import fetch from "node-fetch";
 
 const amadeus = new Amadeus({
   clientId: process.env.AMADEUS_KEY,
