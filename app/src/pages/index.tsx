@@ -11,29 +11,32 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 
 
 interface DataCategory {
-    icon: JSX.Element
-    label: string
+    icon: JSX.Element;
+    label: string;
 }
 
 const dataCardActionsCategory: DataCategory[] = [
     {
         icon: <KingBedOutlinedIcon />,
-        label: 'Hôtels'
-    }, {
+        label: "Hôtels",
+    },
+    {
         icon: <LocalActivityOutlinedIcon />,
-        label: 'Activités'
-    }, {
+        label: "Activités",
+    },
+    {
         icon: <RestaurantMenuOutlinedIcon />,
-        label: 'Restaurants'
-    }, {
+        label: "Restaurants",
+    },
+    {
         icon: <MoreHorizOutlinedIcon />,
-        label: 'Plus'
-    }
+        label: "Plus",
+    },
 ];
 
 export default function Home() {
     const router = useRouter();
-    const [value, setValue] = useState<string>('');
+    const [value, setValue] = useState<string>("");
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -43,12 +46,12 @@ export default function Home() {
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
+        });
         const data = await res.json();
         if (res.status === 201) {
             await router.push(`/post/${ data }`);
         }
-    }
+    };
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         setValue(e.target.value);
@@ -65,7 +68,7 @@ export default function Home() {
                 elevation={ 3 }>
                 <form onSubmit={ handleSubmit }>
                     <Box sx={ { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } }>
-                        <IconButton sx={ { p: '10px', mr: 1 } } aria-label="menu">
+                        <IconButton type='submit' sx={ { p: '10px', mr: 1 } } aria-label="menu">
                             <SearchIcon color='primary' />
                         </IconButton>
                         <InputBase
@@ -86,5 +89,5 @@ const StyledPaper = styled(Paper)(() => ({
     borderRadius: 15,
     padding: '7px 11px',
     display: 'flex',
-    width: "100%",
+    width: "100%"
 }));
