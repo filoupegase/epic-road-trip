@@ -5,11 +5,9 @@ import { useAppDispatch, useAppSelector } from "@/_core/store/store";
 import { Signup } from "@/_core/store/services/register";
 
 
-type SignUpFormProps = {}
-
-const SignUpForm = ({}: SignUpFormProps) => {
+const SignUpForm = () => {
     const appDispatch = useAppDispatch();
-    const { error } = useAppSelector((state) => state.register);
+    const { error, success } = useAppSelector((state) => state.register);
     const [email, setEmail] = useState<string>('');
     const [inputError, setInputError] = useState<boolean>(false);
     const [helperText, setHelperText] = useState<string>('');
@@ -52,39 +50,41 @@ const SignUpForm = ({}: SignUpFormProps) => {
     }, [error]);
 
     return (
-        <form onSubmit={ handleSubmit }>
-            <Box sx={ {
-                display: 'flex',
-                flexDirection: 'column',
-                '& > :not(style)': {
-                    mt: 2,
-                    mb: 2,
-                },
-            } }>
-                <TextField error={ inputError } id="email" label="Email" variant="outlined"
-                           type='email' onChange={ handleChangeEmail } value={ email }
-                />
+        <>
+            <form onSubmit={ handleSubmit }>
+                <Box sx={ {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    '& > :not(style)': {
+                        mt: 2,
+                        mb: 2,
+                    },
+                } }>
+                    <TextField error={ inputError } id="email" label="Email" variant="outlined"
+                               type='email' onChange={ handleChangeEmail } value={ email }
+                    />
 
-                <TextField error={ inputError } id="password" label="Password" variant="outlined" type='password'
-                           onChange={ handleChangePassword }
-                />
-                <TextField
-                    helperText={ helperText }
-                    error={ inputError } id="passwordCheck"
-                    label="Password Check"
-                    variant="outlined"
-                    type='password'
-                    onChange={ handleChangePassword }
-                />
-                <Box
-                    display='flex'
-                    justifyContent='flex-end'
-                >
-                    <Button type='submit' variant="contained" disableElevation>Sign Up</Button>
+                    <TextField error={ inputError } id="password" label="Password" variant="outlined" type='password'
+                               onChange={ handleChangePassword }
+                    />
+                    <TextField
+                        helperText={ helperText }
+                        error={ inputError } id="passwordCheck"
+                        label="Password Check"
+                        variant="outlined"
+                        type='password'
+                        onChange={ handleChangePassword }
+                    />
+                    <Box
+                        display='flex'
+                        justifyContent='flex-end'
+                    >
+                        <Button type='submit' variant="contained" disableElevation>Sign Up</Button>
+                    </Box>
                 </Box>
-            </Box>
-        </form>
+            </form>
+        </>
     );
-}
+};
 
 export default SignUpForm;

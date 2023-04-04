@@ -6,8 +6,7 @@ import { SignupForm } from "@/interface";
 const initialRegisterState = {
     loading: false,
     userEmail: '',
-    userPassword: '',
-    userPasswordCheck: '',
+    successMessage: '',
     error: null,
     success: false,
 }
@@ -26,7 +25,6 @@ export const Signup = createAsyncThunk('auth/register',
     }
 );
 
-
 export const registerSlice = createSlice({
     name: 'register',
     initialState: initialRegisterState,
@@ -39,13 +37,12 @@ export const registerSlice = createSlice({
         builder.addCase(Signup.fulfilled, (state, { payload }) => {
             state.loading = false;
             state.success = true;
-            console.log("REGISTER SUCCESS", payload);
-            // state.userToken = payload.token;
+            state.successMessage = payload.message;
         });
         builder.addCase(Signup.rejected, (state, { payload }) => {
-            state.loading = false
+            state.loading = false;
             // @ts-ignore
-            state.error = payload
+            state.error = payload;
         });
     }
 });

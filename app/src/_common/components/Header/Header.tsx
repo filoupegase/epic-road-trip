@@ -1,5 +1,5 @@
 import React, { useState, PropsWithChildren, SyntheticEvent, useEffect } from 'react';
-import { Box, Button, DialogContent, Tabs, Tab } from '@mui/material';
+import { Box, Button, DialogContent, Tabs, Tab, Snackbar, Alert } from '@mui/material';
 import styled from "styled-components";
 import { useAppSelector } from "@/_core/store/store";
 import DialogLayout from "@/_common/components/Dialog/DialogLayout";
@@ -10,9 +10,18 @@ import SignUpForm from "@/business/Dialog/SignUpForm";
 
 const Header = () => {
     const { success, userToken } = useAppSelector((state) => state.auth);
+    const { successMessage } = useAppSelector((state) => state.register);
     const [open, setOpen] = useState<boolean>(false);
     const [isLogged, setIsLogged] = useState<boolean>(false);
     const [value, setValue] = useState<number>(0);
+    const [openSnackBar, set0penSnackBar] = useState<boolean>(true);
+
+    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        set0penSnackBar(false);
+    };
 
     const handleChange = (event: SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -40,6 +49,12 @@ const Header = () => {
         }
     }, [userToken]);
 
+    useEffect(() => {
+        if (successMessage) {
+            setValue(0);
+        }
+    }, [successMessage]);
+
     return (
         <>
             <Wrapper component='header'>
@@ -62,8 +77,20 @@ const Header = () => {
                     </Box>
                 </Nav>
             </Wrapper>
-            {
-                open &&
+            { successMessage &&
+                <Snackbar
+                    anchorOrigin={ {
+                        vertical: 'top',
+                        horizontal: 'center'
+                    } }
+                    open={ openSnackBar }
+                    autoHideDuration={ 5100 } onClose={ handleClose }>
+                    <Alert severity="success" sx={ { width: '100%' } }>
+                        { successMessage } You can now log In
+                    </Alert>
+                </Snackbar>
+            }
+            { open &&
                 <DialogLayout onClose={ handleClickOpenLoginDialog } open={ open }>
                     <DialogContent>
                         <Tabs value={ value } onChange={ handleChange } centered>
@@ -77,8 +104,7 @@ const Header = () => {
                             <SignUpForm />
                         </TabPanel>
                     </DialogContent>
-                </DialogLayout>
-            }
+                </DialogLayout> }
         </>
     )
 }
