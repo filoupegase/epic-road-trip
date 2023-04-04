@@ -4,10 +4,13 @@ import { Paper, InputBase, IconButton, Stack, Box } from '@mui/material';
 import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 import CardActionsCategory from "@/_common/components/CardActionsCategory";
-import KingBedOutlinedIcon from '@mui/icons-material/KingBedOutlined';
-import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
-import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import KingBedOutlinedIcon from "@mui/icons-material/KingBedOutlined";
+import LocalActivityOutlinedIcon from "@mui/icons-material/LocalActivityOutlined";
+import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
+import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import HotelOffers from "./hotels";
+import HotelsList from "../_common/components/Hotels/HotelsList";
+import SearchBar from "../_common/components/Search/searchCities";
 
 
 interface DataCategory {
@@ -61,27 +64,38 @@ export default function Home() {
         <>
             <Stack sx={ { mt: 3, mb: 4 } } direction="row" spacing={ 2 }>
                 { dataCardActionsCategory.map((el: DataCategory, index) => {
-                    return <CardActionsCategory label={ el.label } icon={ el.icon } key={ index } />
+                    return (
+                        <CardActionsCategory label={ el.label } icon={ el.icon } key={ index } />
+                    );
                 }) }
             </Stack>
-            <StyledPaper
-                elevation={ 3 }>
-                <form onSubmit={ handleSubmit }>
-                    <Box sx={ { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } }>
-                        <IconButton type='submit' sx={ { p: '10px', mr: 1 } } aria-label="menu">
-                            <SearchIcon color='primary' />
-                        </IconButton>
-                        <InputBase
-                            placeholder="Where to?"
-                            fullWidth
-                            onChange={ handleChange }
-                            value={ value }
-                        />
-                    </Box>
-                </form>
-            </StyledPaper>
+            {/* <StyledPaper
+        // @ts-ignore
+        component="form"
+        elevation={3}
+      > */ }
+            {/*  <IconButton
+          onClick={handleSubmit}
+          sx={{ p: "10px", mr: 1 }}
+          aria-label="menu"
+        >
+          <SearchIcon color="primary" />
+        </IconButton> */ }
+            {/* */ }
+            {/*  <InputBase
+          placeholder="Where to ?"
+          inputProps={{ "aria-label": "search google maps" }}
+          fullWidth
+          id="search-bar"
+          onChange={handleChange}
+          value={value}
+        /> */ }
+            {/*       </StyledPaper>
+ */ } <HotelOffers />
+            {/* <HotelsList city="New York" /> */ }
+            <SearchBar></SearchBar>
         </>
-    )
+    );
 }
 
 const StyledPaper = styled(Paper)(() => ({
