@@ -11,7 +11,7 @@ export default function MapComponent() {
   useEffect(() => {
     const features = [];
 
-    fetch("/api/amadeus/get-hotel-list-by-city?city=Paris") // change that dynamically
+    fetch("/api/amadeus/get-hotel-list-by-city?city=Paris")
       .then((res) => res.json())
       .then((result) => {
         result.forEach((elem) => {
