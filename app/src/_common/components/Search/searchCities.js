@@ -118,28 +118,36 @@ function SearchBar() {
     return (
       <div>
         {Array.isArray(city.data) && city.data.length > 0 ? (
-          city.data.map((activity) => (
-            <Card
-              key={activity.name}
-              sx={{ maxWidth: 345, mb: 2 }}
-              onClick={() => handleCardClick(activity.id)}
-            >
-              <CardHeader
-                title={activity.name}
-                subheader={`Category: ${activity.category}`}
-              />
-              <CardMedia
-                component="img"
-                height="194"
-                image={
-                  activity.media && activity.media[0].uri
-                    ? activity.media[0].uri
-                    : "/fallbackActivity-image.jpeg"
-                }
-                alt={activity.name}
-              />
-            </Card>
-          ))
+          <Stack
+            direction="row"
+            alignItems="flex-start"
+            justifyContent="space-between"
+            flexWrap="wrap"
+            spacing={2}
+          >
+            {city.data.map((activity) => (
+              <Card
+                key={activity.name}
+                sx={{ maxWidth: 345, mb: 2 }}
+                onClick={() => handleCardClick(activity.id)}
+              >
+                <CardHeader
+                  title={activity.name}
+                  subheader={`Category: ${activity.category}`}
+                />
+                <CardMedia
+                  component="img"
+                  height="194"
+                  image={
+                    activity.media && activity.media[0].uri
+                      ? activity.media[0].uri
+                      : "/fallbackActivity-image.jpeg"
+                  }
+                  alt={activity.name}
+                />
+              </Card>
+            ))}
+          </Stack>
         ) : (
           <Typography variant="h6">
             Sorry, we don't have any activities for this city.
