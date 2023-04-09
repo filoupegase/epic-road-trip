@@ -2,6 +2,7 @@ import { useState, FormEvent, ChangeEventHandler } from "react";
 import { useRouter } from "next/router";
 import SearchBar from "../_common/components/Search/searchCities";
 import DialogSearchFiltered from "@/_common/components/Dialog/DialogSearchFiltered/DialogSearchFiltered";
+import Layout from "@/_common/components/Layout/Layout";
 
 interface DataCategory {
   icon: JSX.Element;

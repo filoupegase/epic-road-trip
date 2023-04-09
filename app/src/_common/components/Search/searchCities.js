@@ -34,7 +34,7 @@ function SearchBar() {
     }
     const response = await fetch(searchUrl);
     const searchData = await response.json();
-    console.log(searchData);
+    // console.log(searchData);
 
     setCurrentCity({
       name: query,
@@ -51,9 +51,9 @@ function SearchBar() {
 
   const handleCardClick = (id) => {
     if (showHotels) {
-      router.push(`/details/hotel/${id}`);
+      router.push(`/details/hotel?id=${id}`);
     } else {
-      router.push(`/details/activity/${id}`);
+      router.push(`/details/activity?id=${id}`);
     }
   };
 
@@ -156,51 +156,62 @@ function SearchBar() {
       </div>
     );
   }
-
   return (
-    <div>
-      <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
-        <FormControl component="fieldset">
-          <Box sx={{ display: "flex" }}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={showHotels}
-                  onChange={handleCheckboxChange}
-                  name="hotels"
-                />
-              }
-              label={<KingBedOutlinedIcon />}
-            />
-          </Box>
-        </FormControl>
-        <FormControl component="fieldset">
-          <Box sx={{ display: "flex" }}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={showActivities}
-                  onChange={handleCheckboxChange}
-                  name="activities"
-                />
-              }
-              label={<LocalActivityOutlinedIcon />}
-            />
-          </Box>
-        </FormControl>
-      </Stack>
-      <form onSubmit={handleSearch}>
-        <TextField
-          label="Search for a city"
-          variant="outlined"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          sx={{ width: 500, mr: 2 }}
-        />
-        <Button color="primary" variant="contained" type="submit">
-          Search
-        </Button>
-      </form>
+    <div
+      style={{
+        backgroundImage: 'url("/background.jpeg")',
+        backgroundSize: "cover",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ padding: "100px" }}>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
+          <FormControl component="fieldset">
+            <Box sx={{ display: "flex" }}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={showHotels}
+                    onChange={handleCheckboxChange}
+                    name="hotels"
+                  />
+                }
+                label={<KingBedOutlinedIcon />}
+              />
+            </Box>
+          </FormControl>
+          <FormControl component="fieldset">
+            <Box sx={{ display: "flex" }}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={showActivities}
+                    onChange={handleCheckboxChange}
+                    name="activities"
+                  />
+                }
+                label={<LocalActivityOutlinedIcon />}
+              />
+            </Box>
+          </FormControl>
+        </Stack>
+        <form onSubmit={handleSearch}>
+          <TextField
+            label="Search for a city"
+            variant="outlined"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            sx={{ width: 500, mr: 2 }}
+          />
+          <Button color="primary" variant="contained" type="submit">
+            Search
+          </Button>
+        </form>
+      </div>
       {currentCity && (
         <div>
           {showHotels && <HotelsList city={currentCity} />}

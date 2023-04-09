@@ -26,6 +26,6 @@
     "**/*.tsx",
     "src/pages/api/amadeus/index.js",
     "src/_common/components/Search/searchCities.js"
-  ],
+, "src/_common/components/Layout/Layout.tsx"  ],
   "exclude": ["node_modules"]
 }
