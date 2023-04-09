@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react";
 
 
 type Hotel = {
@@ -32,4 +32,8 @@ export default function AmadeusHotels() {
             )) }
         </div>
     );
+}
+ */
+export default function hotels(){
+  return null
 }

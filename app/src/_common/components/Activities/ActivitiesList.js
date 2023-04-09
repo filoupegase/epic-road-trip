@@ -19,7 +19,7 @@ function ActivitiesList({ city, activityQuery }) {
     <div>
       <h2>Activities in {city.name}</h2>
       <List>
-        {filteredActivities.map((activity) => (
+        {filteredActivities?.map((activity) => (
           <ListItem key={activity.name}>
             <ListItemAvatar>
               <Avatar src={activity.pois?.[0]?.thumbnail} />
