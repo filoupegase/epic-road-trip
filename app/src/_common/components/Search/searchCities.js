@@ -1,16 +1,13 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
+import { Typography } from "@mui/material";
+
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import ActivitiesList from "../Activities/ActivitiesList";
 import { useRouter } from "next/router";
 import {
   Stack,
@@ -37,6 +34,7 @@ function SearchBar() {
     }
     const response = await fetch(searchUrl);
     const searchData = await response.json();
+    console.log(searchData);
 
     setCurrentCity({
       name: query,
@@ -58,45 +56,95 @@ function SearchBar() {
       router.push(`/details/activity/${id}`);
     }
   };
-  function ActivitiesList({ city }) {
+
+  function HotelsList({ city }) {
     return (
       <div>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardHeader title="Activities" />
-          <CardContent>
-            <List>
-              {city.data &&
-                city.data.map((activity) => (
-                  <ListItem key={activity.name}>
-                    <ListItemAvatar>
-                      <Avatar src={activity.picture} />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={activity.name}
-                      secondary={`Category: ${activity.category}`}
-                      onClick={() => handleCardClick(activity.id)}
-                    />
-                  </ListItem>
-                ))}
-            </List>
-          </CardContent>
-        </Card>
+        {Array.isArray(city.data) && city.data.length > 0 ? (
+          <Stack
+            direction="row"
+            alignItems="flex-start"
+            justifyContent="space-between"
+            flexWrap="wrap"
+            spacing={2}
+          >
+            {city.data.map((hotel) => (
+              <Box
+                key={hotel.hotelId}
+                sx={{ maxWidth: 345, mb: 2, mr: 2 }}
+                onClick={() => handleCardClick(hotel.hotelId)}
+              >
+                <Card sx={{ mb: 2 }}>
+                  <CardHeader
+                    title={hotel.name}
+                    subheader={hotel.address && hotel.address.countryCode}
+                  />
+                  <CardMedia
+                    component="img"
+                    height="194"
+                    image={
+                      hotel.media && hotel.media[0].uri
+                        ? hotel.media[0].uri
+                        : "/fallback-image.jpeg"
+                    }
+                    alt={hotel.name}
+                  />
+                  <CardContent>
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                      <KingBedOutlinedIcon />
+                      <ListItemText
+                        primary={
+                          hotel.totalRooms
+                            ? `${hotel.totalRooms} rooms`
+                            : "Unknown number of rooms"
+                        }
+                      />
+                    </Stack>
+                  </CardContent>
+                </Card>
+              </Box>
+            ))}
+          </Stack>
+        ) : (
+          <Typography variant="h6">
+            Sorry, we don't have any hotels for this city.
+          </Typography>
+        )}
       </div>
     );
   }
 
-  function ActivitiesListCard({ city }) {
+  function ActivitiesList({ city }) {
     return (
       <div>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardHeader title="Hotels" />
-          <CardContent>
-            <ActivitiesList
-              city={city}
-              onItemClick={(hotelId) => handleCardClick(hotelId)}
-            />
-          </CardContent>
-        </Card>
+        {Array.isArray(city.data) && city.data.length > 0 ? (
+          city.data.map((activity) => (
+            <Card
+              key={activity.name}
+              sx={{ maxWidth: 345, mb: 2 }}
+              onClick={() => handleCardClick(activity.id)}
+            >
+              <CardHeader
+                title={activity.name}
+                subheader={`Category: ${activity.category}`}
+              />
+              <CardMedia
+                component="img"
+                height="194"
+                image={
+                  activity.media && activity.media[0].uri
+                    ? activity.media[0].uri
+                    : "/fallbackActivity-image.jpeg"
+                }
+                alt={activity.name}
+              />
+            </Card>
+          ))
+        ) : (
+          <Typography variant="h6">
+            Sorry, we don't have any activities for this city.
+          </Typography>
+        )}
       </div>
     );
   }
@@ -133,7 +181,6 @@ function SearchBar() {
           </Box>
         </FormControl>
       </Stack>
-
       <form onSubmit={handleSearch}>
         <TextField
           label="Search for a city"
@@ -148,7 +195,7 @@ function SearchBar() {
       </form>
       {currentCity && (
         <div>
-          {showHotels && <ActivitiesListCard city={currentCity} />}
+          {showHotels && <HotelsList city={currentCity} />}
           {showActivities && <ActivitiesList city={currentCity} />}
         </div>
       )}
