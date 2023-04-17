@@ -21,7 +21,7 @@ const CardActionsCategory = ({ label, icon }: CardActionsCategoryProps) => {
 }
 
 const StyledSelectBox = styled(CardActionArea)(({ theme }) => ({
-    border: `solid 1px ${ theme.palette.primary.main }`,
+    border: `solid 1px ${ theme?.palette?.primary?.main }`,
     borderRadius: 15,
     padding: "11px 16px",
     display: 'flex',

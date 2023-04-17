@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: user/google.js</title>
+    <title>JSDoc: Source: user/save-query.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: user/google.js</h1>
+    <h1 class="page-title">Source: user/save-query.js</h1>
 
     
 
@@ -27,20 +27,21 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @module api/user/google
+ * @module api/user/save-query
  */
-import { sign } from "jsonwebtoken";
 import pool from "server/db";
+import { verify } from "jsonwebtoken";
 
 /**
- * Logs in a user with Google.
+ * Saves a query.
  * @function
  * @async
  * @param {NextApiRequest} req - The HTTP request object.
  * @param {string} req.method - "POST"
  * @param {string} req.headers["Content-Type"] - "application/json"
- * @param {string} req.body.googleTokenId - The Google token ID of the user.
- * @param {string} req.body.email - The email address of the user.
+ * @param {string} req.body.user_id - The ID of the user.
+ * @param {string} req.body.query_type - The type of query. Allowed values: "hotel", "attraction".
+ * @param {string} req.body.city - The city of the query.
  * @param {NextApiResponse} res - The HTTP response object.
  * @returns {Promise&lt;Object>} A promise that resolves to a JSON object containing a JWT token, or an error message if the request is unsuccessful.
  * @throws {Error} 400 - Bad request error.
@@ -48,62 +49,39 @@ import pool from "server/db";
  * @example
  * // Example payload:
  * // {
- * //   "googleTokenId": "G00G13T0K3N1D",
- * //   "email": "example@example.com"
+ * //  "query_type": "hotel",
+ * //  "city": "New York"
  * // }
- * google(req, res);
+ *
+ * saveQuery(req, res);
  */
-function google(req, res) {
-  function createToken(userId) {
-    return sign(
-      { id: userId, iss: "road_trip" },
-      process.env.TOKEN_SECRET,
-      (err, token) => {
-        if (err) {
-          return res.status(400).json({
-            message: "Invalid token",
-          });
-        } else {
-          return res.status(200).json({ token });
-        }
-      }
-    );
-  }
+async function saveQuery(req, res) {
+  if (req.method === "POST") {
+    const { query_type, city } = req.body;
 
-  if (req.method !== "POST") {
-    return res.status(400).json({ message: "Invalid method." });
-  }
+    const token = req.cookies.token;
+    const user_id = token ? verify(token, process.env.TOKEN_SECRET).id : null;
 
-  if (!req.body.googleTokenId) {
-    return res.status(400).json({ message: "No token provided." });
-  }
+    if (!user_id) {
+      return res.status(401).json({ message: "Invalid token." });
+    }
 
-  const { googleTokenId, email } = req.body;
-
-  return new Promise(async (resolve) => {
     try {
-      const user = await pool.query(
-        "SELECT * FROM users WHERE email = $1 LIMIT 1",
-        [email]
+      await pool.query(
+        "INSERT INTO saved_queries (user_id, query_type, city) VALUES ($1, $2, $3)",
+        [user_id, query_type, city]
       );
 
-      if (!user?.rows?.length) {
-        const newUser = await pool.query(
-          "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *",
-          [email, Math.random().toString(36).substring(2, 15)]
-        );
-
-        return createToken(newUser.rows[0].id);
-      }
-
-      return createToken(user.rows[0].id);
+      res.status(200).json({ message: "Query saved successfully" });
     } catch (err) {
-      return res.status(400).json({ message: err.message });
+      res.status(400).json({ message: err.message });
     }
-  });
+  } else {
+    res.status(400).json({ message: "Invalid method." });
+  }
 }
 
-export default google;
+export default saveQuery;
 </code></pre>
         </article>
     </section>

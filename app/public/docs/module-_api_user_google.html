@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: api/user/whoami</title>
+    <title>JSDoc: Module: /api/user/google</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: api/user/whoami</h1>
+    <h1 class="page-title">Module: /api/user/google</h1>
 
     
 
@@ -67,7 +67,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user_whoami.js.html">user/whoami.js</a>, <a href="user_whoami.js.html#line1">line 1</a>
+        <a href="user_google.js.html">user/google.js</a>, <a href="user_google.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -106,7 +106,7 @@
     
 
     
-    <h4 class="name" id="~fetchInfoAboutCurrentUser"><span class="type-signature">(async, inner) </span>fetchInfoAboutCurrentUser<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    <h4 class="name" id="~google"><span class="type-signature">(async, inner) </span>google<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
     
 
     
@@ -114,7 +114,7 @@
 
 
 <div class="description">
-    <p>Fetches information about the current user.</p>
+    <p>Logs in a user with Google.</p>
 </div>
 
 
@@ -156,7 +156,7 @@
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">NextApiRequest</span>
 
 
             
@@ -208,7 +208,7 @@
 
             
 
-            <td class="description last"><p>&quot;GET&quot;</p></td>
+            <td class="description last"><p>&quot;POST&quot;</p></td>
         </tr>
 
     
@@ -238,7 +238,7 @@
 
         <tr>
             
-                <td class="name"><code>cookies.token</code></td>
+                <td class="name"><code>body.googleTokenId</code></td>
             
 
             <td class="type">
@@ -254,7 +254,30 @@
 
             
 
-            <td class="description last"><p>The JWT token for the current user.</p></td>
+            <td class="description last"><p>The Google token ID of the user.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>body.email</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The email address of the user.</p></td>
         </tr>
 
     
@@ -274,7 +297,7 @@
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">NextApiResponse</span>
 
 
             
@@ -325,7 +348,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user_whoami.js.html">user/whoami.js</a>, <a href="user_whoami.js.html#line31">line 31</a>
+        <a href="user_google.js.html">user/google.js</a>, <a href="user_google.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -410,7 +433,7 @@
 
         
 <div class="param-desc">
-    <p>A promise that resolves to a JSON object containing information about the current user, or an error message if the request is unsuccessful.</p>
+    <p>A promise that resolves to a JSON object containing a JWT token, or an error message if the request is unsuccessful.</p>
 </div>
 
 
@@ -436,12 +459,10 @@
     
     <pre class="prettyprint"><code>// Example payload:
 // {
-//   "cookies": {
-//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-//   }
+//   "googleTokenId": "G00G13T0K3N1D",
+//   "email": "example@example.com"
 // }
-
-fetchInfoAboutCurrentUser(req, res);</code></pre>
+google(req, res);</code></pre>
 
 
 
@@ -461,13 +482,13 @@ fetchInfoAboutCurrentUser(req, res);</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_amadeus_get-hotel-by-id.html">api/amadeus/get-hotel-by-id</a></li><li><a href="module-api_amadeus_get-hotel-list-by-city.html">api/amadeus/get-hotel-list-by-city</a></li><li><a href="module-api_amadeus_get-points-of-interest.html">api/amadeus/get-points-of-interest</a></li><li><a href="module-api_user_google.html">api/user/google</a></li><li><a href="module-api_user_login.html">api/user/login</a></li><li><a href="module-api_user_register.html">api/user/register</a></li><li><a href="module-api_user_save-query.html">api/user/save-query</a></li><li><a href="module-api_user_whoami.html">api/user/whoami</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_api_amadeus_get-hotel-by-id.html">/api/amadeus/get-hotel-by-id</a></li><li><a href="module-_api_amadeus_get-hotel-list-by-city.html">/api/amadeus/get-hotel-list-by-city</a></li><li><a href="module-_api_amadeus_get-points-of-interest.html">/api/amadeus/get-points-of-interest</a></li><li><a href="module-_api_user_google.html">/api/user/google</a></li><li><a href="module-_api_user_login.html">/api/user/login</a></li><li><a href="module-_api_user_register.html">/api/user/register</a></li><li><a href="module-_api_user_save-query.html">/api/user/save-query</a></li><li><a href="module-_api_user_whoami.html">/api/user/whoami</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Apr 08 2023 13:49:49 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Apr 08 2023 13:38:57 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

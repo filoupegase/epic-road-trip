@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: api/amadeus/get-hotel-list-by-city</title>
+    <title>JSDoc: Module: /api/amadeus/get-hotel-by-id</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: api/amadeus/get-hotel-list-by-city</h1>
+    <h1 class="page-title">Module: /api/amadeus/get-hotel-by-id</h1>
 
     
 
@@ -67,7 +67,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="amadeus_get-hotel-list-by-city.js.html">amadeus/get-hotel-list-by-city.js</a>, <a href="amadeus_get-hotel-list-by-city.js.html#line1">line 1</a>
+        <a href="amadeus_get-hotel-by-id.js.html">amadeus/get-hotel-by-id.js</a>, <a href="amadeus_get-hotel-by-id.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -106,7 +106,7 @@
     
 
     
-    <h4 class="name" id="~getHotelListByCity"><span class="type-signature">(inner) </span>getHotelListByCity<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    <h4 class="name" id="~getHotelById"><span class="type-signature">(async, inner) </span>getHotelById<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Promise.&lt;void>}</span></h4>
     
 
     
@@ -114,7 +114,7 @@
 
 
 <div class="description">
-    <p>Fetches information about hotels located in a specific city, based on the latitude and longitude coordinates of that city.</p>
+    <p>Fetches information about a specific hotel, based on the hotel's ID.</p>
 </div>
 
 
@@ -215,7 +215,7 @@
 
         <tr>
             
-                <td class="name"><code>query.city</code></td>
+                <td class="name"><code>query.id</code></td>
             
 
             <td class="type">
@@ -231,7 +231,76 @@
 
             
 
-            <td class="description last"><p>The name of the city for which hotel data is being requested.</p></td>
+            <td class="description last"><p>The ID of the hotel for which data is being requested.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query.adults</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The number of adults for the hotel search (optional, defaults to 1).</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query.checkInDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The check-in date for the hotel search.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query.checkOutDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The check-out date for the hotel search.</p></td>
         </tr>
 
     
@@ -302,7 +371,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="amadeus_get-hotel-list-by-city.js.html">amadeus/get-hotel-list-by-city.js</a>, <a href="amadeus_get-hotel-list-by-city.js.html#line26">line 26</a>
+        <a href="amadeus_get-hotel-by-id.js.html">amadeus/get-hotel-by-id.js</a>, <a href="amadeus_get-hotel-by-id.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -331,7 +400,7 @@
 
         
 <div class="param-desc">
-    <p>A promise that resolves to a JSON object containing information about hotels located within 25 kilometers of the latitude and longitude coordinates of the city, or an error message if the request is unsuccessful.</p>
+    <p>A promise that resolves when the response is sent.</p>
 </div>
 
 
@@ -342,7 +411,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;Object></span>
+<span class="param-type">Promise.&lt;void></span>
 
 
     </dd>
@@ -356,9 +425,9 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>// Example payload:
-// ?city=CITY_NAME
+// ?id=HOTEL_ID&amp;adults=NUMBER_OF_ADULTS&amp;checkInDate=CHECK_IN_DATE&amp;checkOutDate=CHECK_OUT_DATE
 
-getHotelListByCity(req, res);</code></pre>
+getHotelById(req, res);</code></pre>
 
 
 
@@ -378,13 +447,13 @@ getHotelListByCity(req, res);</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_amadeus_get-hotel-by-id.html">api/amadeus/get-hotel-by-id</a></li><li><a href="module-api_amadeus_get-hotel-list-by-city.html">api/amadeus/get-hotel-list-by-city</a></li><li><a href="module-api_amadeus_get-points-of-interest.html">api/amadeus/get-points-of-interest</a></li><li><a href="module-api_user_google.html">api/user/google</a></li><li><a href="module-api_user_login.html">api/user/login</a></li><li><a href="module-api_user_register.html">api/user/register</a></li><li><a href="module-api_user_save-query.html">api/user/save-query</a></li><li><a href="module-api_user_whoami.html">api/user/whoami</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_api_amadeus_get-hotel-by-id.html">/api/amadeus/get-hotel-by-id</a></li><li><a href="module-_api_amadeus_get-hotel-list-by-city.html">/api/amadeus/get-hotel-list-by-city</a></li><li><a href="module-_api_amadeus_get-points-of-interest.html">/api/amadeus/get-points-of-interest</a></li><li><a href="module-_api_user_google.html">/api/user/google</a></li><li><a href="module-_api_user_login.html">/api/user/login</a></li><li><a href="module-_api_user_register.html">/api/user/register</a></li><li><a href="module-_api_user_save-query.html">/api/user/save-query</a></li><li><a href="module-_api_user_whoami.html">/api/user/whoami</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Apr 08 2023 13:49:49 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Apr 08 2023 13:38:57 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>
